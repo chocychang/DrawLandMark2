@@ -2,12 +2,14 @@ package com.edu.ncu.drawlandmark;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -26,6 +28,9 @@ public class PingxiActivity extends Activity implements ViewPager.OnPageChangeLi
 
     TextView tv_guess;
     TextView tv_draw_inK;
+    Button bt_playmusic;
+
+    private MediaPlayer mp=new MediaPlayer();
 
 
     @Override
@@ -74,6 +79,16 @@ public class PingxiActivity extends Activity implements ViewPager.OnPageChangeLi
         //?置ViewPager的???听
         vp.setOnPageChangeListener(this);
         //?示?片描述信息的控件
+
+        bt_playmusic = (Button) findViewById(R.id.bt_playmusic);
+        final MediaPlayer mp =MediaPlayer.create(this, R.raw.music2);
+
+        bt_playmusic.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                mp.start();
+            }
+        });
 
         this.tv_guess = (TextView) findViewById(R.id.tv_guess2);
         tv_guess.setOnClickListener(new View.OnClickListener(){
