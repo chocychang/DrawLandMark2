@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "927459646772",
+    "firebase_url": "https://drawlandmark-db.firebaseio.com",
+    "project_id": "drawlandmark-db",
+    "storage_bucket": "drawlandmark-db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:927459646772:android:1d2588e7ae0ac3e2",
+        "android_client_info": {
+          "package_name": "com.edu.ncu.drawlandmark"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "927459646772-23qt1j5idmfd156vbblu4qbm89ii1k3l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.edu.ncu.drawlandmark",
+            "certificate_hash": "d32c97bac593d764dc7842362ae3d7fa0da15435"
+          }
+        },
+        {
+          "client_id": "927459646772-n4dt6d4kkjllmio2m19jqalepei8b5hv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyrrGqC6YNPdzMrBipRx1oJYl0FQNJdEg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "927459646772-n4dt6d4kkjllmio2m19jqalepei8b5hv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

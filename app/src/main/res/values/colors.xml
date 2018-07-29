@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3f51b5</color>
+    <color name="colorPrimaryDark">#8ed6ed</color>
+    <color name="colorAccent">#ff4081</color>
+
+    <color name="lightBlue">#ccffff</color>
+    <color name="lightYellow">#abf0e279</color>
+    <color name="lightGreen">#7ce0bb</color>
+    <color name="lightPink">#ffb7dd</color>
+
+    <color name="transparent_background">#501a1919</color>
+    <drawable name="translucent_background">#5500ff</drawable>
+    <color name = "transparent">#9000</color>
+</resources>

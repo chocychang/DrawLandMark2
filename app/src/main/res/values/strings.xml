@@ -1,0 +1,79 @@
+<resources>
+    <string name="app_name">DrawLandMark</string>
+
+    <string name="play">Play
+    </string>
+    <string name="stats">Stats
+    </string>
+    <string name="settings">Settings
+    </string>
+    <string name="str_quiznumber">第 %d 題</string>
+    <string name="str_correctnumber">O&#160;&#160;&#160;&#160;%d題</string>
+    <string name="str_wrongnumber">X&#160;&#160;&#160;&#160;%d題</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">輸入你的信箱</string>
+    <string name="prompt_password">輸入你的密碼</string>
+    <string name="action_sign_in">登入</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+
+    <string name="leave">離開</string>
+    <string name="next">下一題</string>
+    <string name="sign_out">登出</string>
+    <string name="login_error">你的輸入格式錯誤唷！再檢查一次</string>
+    <string name="login_error_title">登入失敗QQ</string>
+    <string name="register_error_title">註冊格式錯誤</string>
+    <string name="ok">我知道了</string>
+    <string name="register">註冊</string>
+    <string name="timeup">時間到囉！</string>
+    <string name="timeup_msg">Bubble,你已經用1小時囉\n該讓眼睛休息一下了~</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">DrawLandMark</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">設定</string>
+    <string name="go">GO！！</string>
+    <string name="finishregister">完成!!</string>
+    <string name="doublecheck">再次確認密碼</string>
+    <string name="doublecheck_error">兩次密碼不相同，請再檢查一次</string>
+
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+
+    <string name="welcome_msg">歡迎你加入台灣童學繪\n先來讓我們來認識你一下吧</string>
+    <string name="name">暱名:</string>
+    <string name="setnewprofile">建立新頭貼</string>
+
+    <string name="level">Level:0</string>
+    <string name="coin">$ 9999999</string>
+
+    <string name="congra">恭喜獲得</string>
+    <string name="coinXP">經驗值：100xp；b幣：300 coins</string>
+    <string name="finishgame">恭喜你答完五題囉~</string>
+
+    <string name="start_new">New</string>
+    <string name="brush">Brush</string>
+    <string name="erase">Erase</string>
+    <string name="save">Save</string>
+    <string name="paint">Paint</string>
+    <string name="insert">Insert</string>
+    <string name="undo">Undo</string>
+    <string name="redo">Redo</string>
+
+    <string name="sml">Small</string>
+    <string name="med">Medium</string>
+    <string name="lrg">Large</string>
+
+    <string name="together_drawing">大家一起來畫畫，首先選擇你喜歡的照片</string>
+
+</resources>

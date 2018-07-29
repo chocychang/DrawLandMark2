@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:backgroundTint="@color/lightYellow"
+    android:orientation="vertical"
+    tools:context="com.edu.ncu.drawlandmark.QuePlayActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/lightYellow"
+        android:backgroundTint="@color/lightYellow">
+
+        <TextView
+            android:id="@+id/quiznumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_question"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="61dp"
+            android:text="第一題"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/tv_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="133dp"
+            android:maxLines="4"
+            android:text="題目"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/background_dark"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="113dp"
+            android:layout_height="99dp"
+            android:layout_alignEnd="@+id/correct_num"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="21dp"
+            android:layout_marginRight="10dp"
+            android:cropToPadding="false"
+            android:paddingBottom="20dp"
+            app:srcCompat="@drawable/bubble" />
+
+        <TextView
+            android:id="@+id/correct_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/linearLayout"
+            android:layout_alignParentTop="true"
+            android:layout_alignRight="@+id/linearLayout"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="18dp"
+            android:text="O    0題"
+            android:textColor="@color/lightGreen"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/wrong_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/correct_num"
+            android:layout_alignStart="@+id/correct_num"
+            android:layout_below="@+id/correct_num"
+            android:layout_marginTop="11dp"
+            android:text="X    0題"
+            android:textColor="@color/lightPink"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20.5dp"
+            android:layout_marginTop="200dp"
+            android:orientation="vertical"
+            android:id="@+id/linearLayout">
+
+            <Button
+                android:id="@+id/btn_option_1"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="0dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@android:color/background_light"
+                android:text="Hmm.. 0?"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btn_option_2"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="0dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@android:color/background_light"
+                android:text="One?"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btn_option_3"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="0dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@android:color/background_light"
+                android:text="Two?"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btn_option_4"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginBottom="0dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="15dp"
+                android:backgroundTint="@android:color/background_light"
+                android:text="Maybe 4?"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

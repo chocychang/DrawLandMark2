@@ -1,0 +1,41 @@
+CREATE TABLE `questions` (
+    _id INTEGER AUTO INCREMENT PRIMARY KEY,
+    `question` VARCHAR(256),
+    `correct_answer` VARCHAR(32) NOT NULL,
+    `wrong_answer_1` VARCHAR(32) NOT NULL,
+    `wrong_answer_2` VARCHAR(32) NOT NULL,
+    `wrong_answer_3` VARCHAR(32) NOT NULL,
+    `wrong_answer_4` VARCHAR(32) DEFAULT NULL,
+    `wrong_answer_5` VARCHAR(32) DEFAULT NULL,
+    `wrong_answer_6` VARCHAR(32) DEFAULT NULL,
+    `wrong_answer_7` VARCHAR(32) DEFAULT NULL,
+    `difficulty` CHARACTER NOT NULL DEFAULT 'e',
+    `category` CHARACTER NOT NULL DEFAULT 'Z',
+    `solve` VARCHAR(256) DEFAULT NULL
+);
+
+-- history    - A
+-- geography  - B
+-- literature - C
+-- art        - D
+-- sport      - E
+-- science    - F
+-- PINGXI     - G
+-- astronomy  - H
+-- other      - Z
+
+-- Add some questions for debugging
+INSERT INTO `questions` (`question`, `correct_answer`, `wrong_answer_1`, `wrong_answer_2`, `wrong_answer_3`, `solve`, `category`)
+VALUES("平溪最著名的活動是甚麼？", "放天燈", "吃貢丸", "動漫展", "划龍舟",  "最著名就是放天燈", 'G');
+
+INSERT INTO `questions` (`question`, `correct_answer`, `wrong_answer_1`, `wrong_answer_2`, `wrong_answer_3`, `solve`, `category`)
+VALUES("平溪位於哪一河川上游？", "基隆河", "濁水溪", "曾文溪", "大漢溪", "平溪就是位於基隆河", 'G');
+
+INSERT INTO `questions` (`question`, `correct_answer`, `wrong_answer_1`, `wrong_answer_2`, `wrong_answer_3`, `solve`, `category`)
+VALUES("下列曾經為平溪的特產？", "煤礦", "便當", "金礦", "鑽石", "平溪以前產煤礦", 'G');
+
+INSERT INTO `questions` (`question`, `correct_answer`, `wrong_answer_1`, `wrong_answer_2`, `wrong_answer_3`, `solve`, `category`)
+VALUES("下列哪個不是來到平溪可以遊玩的地點", "愛河", "十分瀑布", "菁桐車站", "十分車站", "愛河在高雄", 'G');
+
+INSERT INTO `questions` (`question`, `correct_answer`, `wrong_answer_1`, `wrong_answer_2`, `wrong_answer_3`, `solve`, `category`)
+VALUES("俗話說「南蜂炮，北天燈」所謂的北是指哪？", "平溪", "基隆", "淡水", "野柳", "答案就是平溪", 'G');

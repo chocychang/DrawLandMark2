@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view"
+    android:background="@color/lightYellow">
+
+    <group android:checkableBehavior="single"
+        android:background="@color/lightYellow">
+        <item
+            android:id="@+id/nav_maccount"
+            android:icon="@android:drawable/ic_menu_myplaces"
+            android:title="個人資料"
+            android:background="@color/lightYellow"/>
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="我的作品集" />
+
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="設定" />
+
+        <item
+            android:id="@+id/log_out"
+            android:icon="@android:drawable/ic_menu_rotate"
+            android:title="登出"/>
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_mFB"
+                android:icon="@drawable/ic_menu_share"
+                android:title="我們的粉絲團" />
+            <item
+                android:id="@+id/nav_score"
+                android:icon="@android:drawable/star_big_on"
+                android:title="評分" />
+        </menu>
+    </item>
+
+</menu>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.edu.ncu.drawlandmark.QueMenuActivity">
+
+    <RelativeLayout
+        android:layout_width="400dp"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="25dp"
+            android:layout_marginStart="25dp"
+            app:srcCompat="@drawable/dialog" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_alignEnd="@+id/btn_play"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/btn_play"
+            android:layout_marginBottom="23dp"
+            android:layout_marginEnd="79dp"
+            android:layout_marginRight="79dp"
+            app:srcCompat="@drawable/bubble" />
+
+        <Button
+            android:id="@+id/btn_play"
+            android:layout_width="120dp"
+            android:layout_height="40dp"
+            android:layout_alignBottom="@+id/imageView2"
+            android:layout_alignLeft="@+id/imageView2"
+            android:layout_alignStart="@+id/imageView2"
+            android:layout_marginBottom="94dp"
+            android:layout_marginLeft="125dp"
+            android:layout_marginStart="125dp"
+            android:background="#bada55"
+            android:text="@string/play"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btn_play"
+            android:layout_alignLeft="@+id/btn_play"
+            android:layout_alignStart="@+id/btn_play"
+            android:layout_marginBottom="38dp"
+            android:text="歡迎來到猜猜看"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_stats"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="0dp"
+        android:background="#7aaee6"
+        android:text="@string/stats"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/btn_settings"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_margin="5dp"
+        android:background="#7aaee6"
+        android:text="@string/settings"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:visibility="invisible" />
+
+</LinearLayout>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.edu.ncu.drawlandmark">
+
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <!-- Timer -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- Firebase Storage -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".NewTaipeiMap"
+            android:theme="@style/NoTitle" />
+        <activity
+            android:name=".PingxiActivity"
+            android:theme="@style/NoTitle" />
+        <activity android:name=".QueMenuActivity" />
+        <activity
+            android:name=".QuePlayActivity"
+            android:theme="@style/NoTitle" />
+        <activity
+            android:name=".GuessDialogActivity"
+            android:theme="@style/dialog" />
+        <activity
+            android:name=".SolveActivity"
+            android:theme="@style/Transparent" />
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".StartOptionActivity" />
+
+        <service
+            android:name=".TimeService"
+            android:enabled="true" />
+
+        <receiver android:name=".AlarmReceiver" />
+
+        <activity
+            android:name=".TimeUpActivity"
+            android:theme="@style/dialog" />
+        <activity
+            android:name=".NavigationActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".SetProfileActivity" />
+        <activity
+            android:name=".GainXPCoinDialog"
+            android:theme="@style/dialog" />
+        <activity android:name=".DrawingActivity" />
+        <activity android:name=".choosedetail" />
+        <activity android:name=".TaipeiMap" />
+        <activity android:name=".ChooseDraw" />
+        <activity android:name=".SetupActivity"></activity>
+    </application>
+
+</manifest>
