@@ -42,8 +42,8 @@ public class NavigationActivity extends AppCompatActivity
         auth = FirebaseAuth.getInstance();
         auth = FirebaseAuth.getInstance();
         FirebaseUser user = auth.getCurrentUser();
-        userUID = user.getUid();
-        useremail = user.getEmail();
+        //userUID = user.getUid();
+        //useremail = user.getEmail();
         authListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(
