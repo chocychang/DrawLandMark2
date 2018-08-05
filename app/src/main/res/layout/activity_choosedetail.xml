@@ -66,7 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:layout_marginEnd="148dp"
-        android:layout_marginRight="148dp"
+        android:background="@color/button"
         android:text="選擇"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

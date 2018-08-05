@@ -4,18 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lightYellow"
+    android:background="@color/mainBackground"
     tools:context=".RegisterActivity">
 
     <ImageView
         android:id="@+id/imageView8"
-        android:layout_width="304dp"
-        android:layout_height="288dp"
-        android:layout_marginBottom="256dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="220dp"
+        android:layout_height="217dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginStart="60dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/bubble" />
 
     <TextView
@@ -23,17 +24,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="3dp"
-        android:layout_marginEnd="156dp"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="216dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="6dp"
         android:text="@string/register"
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/R_login_form"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView8"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintEnd_toEndOf="@+id/R_login_form"
+        app:layout_constraintStart_toStartOf="@+id/R_login_form"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ProgressBar
         android:id="@+id/R_login_progress"
@@ -58,24 +58,32 @@
         android:id="@+id/R_email_register_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="148dp"
-        android:layout_marginRight="148dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="78dp"
+        android:layout_marginStart="78dp"
+        android:layout_marginTop="8dp"
+        android:background="#ffa679"
         android:text="@string/finishregister"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"  />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/R_login_form"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ScrollView
         android:id="@+id/R_login_form"
         android:layout_width="324dp"
-        android:layout_height="211dp"
-        android:layout_marginBottom="32dp"
+        android:layout_height="169dp"
+        android:layout_marginBottom="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.852">
 
         <LinearLayout
             android:id="@+id/R_email_login_form"
@@ -85,12 +93,14 @@
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="49dp"
+                android:background="@color/textInput">
 
                 <AutoCompleteTextView
                     android:id="@+id/R_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@color/textInput"
                     android:hint="@string/prompt_email"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
@@ -107,6 +117,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="49dp"
                     android:layout_weight="1"
+                    android:background="@color/textInput"
                     android:ems="10"
                     android:hint="@string/prompt_password"
                     android:imeActionId="6"
@@ -127,6 +138,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="49dp"
                     android:layout_weight="1"
+                    android:background="@color/textInput"
                     android:ems="10"
                     android:hint="@string/doublecheck"
                     android:imeActionId="6"
