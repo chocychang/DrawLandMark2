@@ -28,11 +28,11 @@ public class DrawingActivity extends AppCompatActivity implements OnClickListene
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_drawing);
         drawView = findViewById(R.id.drawing);
         LinearLayout paintLayout = findViewById(R.id.paint_colors);
-       // currPaint = (ImageButton)paintLayout.getChildAt(0);  //獲取第一個按鈕並將其存儲
-       // currPaint.setImageDrawable(getResources().getDrawable(R.drawable.paint_pressed));  //在按鈕上使用不同的可繪製圖像來顯示當前選擇的圖像
+        currPaint = (ImageButton)paintLayout.getChildAt(0);  //獲取第一個按鈕並將其存儲
+        currPaint.setImageDrawable(getResources().getDrawable(R.drawable.paint_pressed));  //在按鈕上使用不同的可繪製圖像來顯示當前選擇的圖像
 
 
         smallBrush = getResources().getInteger(R.integer.small_size);
@@ -88,9 +88,6 @@ public class DrawingActivity extends AppCompatActivity implements OnClickListene
                 }
             }
         });
-
-        currPaint = (ImageButton)paintLayout.getChildAt(0);  //獲取第一個按鈕並將其存儲
-        currPaint.setImageDrawable(getResources().getDrawable(R.drawable.paint_pressed));  //在按鈕上使用不同的可繪製圖像來顯示當前選擇的圖像
 
     }
 

@@ -23,6 +23,7 @@ public class SolveActivity extends Activity implements View.OnClickListener{
     Boolean game_finish;
     TextView tv_finishgame;
     int getCorrect_num;
+    int gainCoin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class SolveActivity extends Activity implements View.OnClickListener{
         this.tv_solve.setText(intent.getStringExtra("Solving_MSG"));
         this.game_finish = intent.getBooleanExtra("GAME_FINISH",FALSE);
         this.getCorrect_num = intent.getIntExtra("CORRECT_NUM_MSG",0);
+        this.gainCoin = intent.getIntExtra("GET_COIN",0);
 
 
         bt_leave.setOnClickListener(this);
@@ -71,6 +73,7 @@ public class SolveActivity extends Activity implements View.OnClickListener{
         double XP = updatelevel.getgainXP(this.getCorrect_num);
         Intent intent = new Intent(this, GainXPCoinDialog.class);
         intent.putExtra("GAINXPCOIN_MSG", XP);
+        intent.putExtra("gainCoin",gainCoin);
         startActivity(intent);
     }
 }

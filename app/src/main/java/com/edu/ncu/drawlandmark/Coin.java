@@ -1,4 +1,7 @@
-//import java.util.*;
+package com.edu.ncu.drawlandmark;
+
+import java.lang.reflect.Array;
+import java.util.*;
 
 public class Coin {
     //public static void main(String[] args){
@@ -9,7 +12,7 @@ public class Coin {
     private int correct = 0;
     private boolean answerCheck;
     private int conti = 0;
-    private int[] problem = new int[5];
+    private ArrayList<Integer> problem = new ArrayList<>();
 
     public Coin() {
 
@@ -26,19 +29,15 @@ public class Coin {
 
     }
 
+    public void setCorerct(int correct){
+        this.correct = correct;
+    }
 
-    public void countProblemGain(){
-        for(int i=0;i<5;i++) {
-            if(answerCheck == true) {
-                problem[i]=1;
-                correct++;
-            }
-            else problem[i]=0;
-        }
 
-        if(problem[4]!=0) {
+    public int countProblemGain(ArrayList<Integer> problem){
+        if(problem.get(4)!=0) {
             for(int j=3;j>-1;j--) {
-                if(problem[j]!=0) conti++;
+                if(problem.get(j)!=0) conti++;
             }
         }
 
@@ -49,7 +48,9 @@ public class Coin {
         else if(conti==4)m=2;
 
         earning_coin = (int) ((200*correct)*m);
-        System.out.printf("恭喜你答對%d題，你共獲得%d coins",correct,earning_coin);
+       // System.out.printf("恭喜你答對%d題，你共獲得%d coins",correct,earning_coin);
+
+        return  earning_coin;
     }
 
 

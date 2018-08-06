@@ -11,6 +11,7 @@ public class GainXPCoinDialog extends Activity {
 
     TextView tv_coinXP;
     double getXP;
+    int getCoin;
 
     public GainXPCoinDialog(){
 
@@ -25,8 +26,9 @@ public class GainXPCoinDialog extends Activity {
 
         Intent intent = getIntent();
         this.getXP = intent.getDoubleExtra("GAINXPCOIN_MSG",100);
+        this.getCoin = intent.getIntExtra("gainCoin",0);
 
-        this.tv_coinXP.setText("經驗值: "+this.getXP);
+        this.tv_coinXP.setText("經驗值: "+this.getXP+" B幣： "+this.getCoin);
 
         Handler handler = new Handler();
         handler.postDelayed(new Runnable(){

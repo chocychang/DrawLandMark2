@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Queue;
@@ -42,6 +43,8 @@ public class QuePlayActivity extends Activity implements View.OnClickListener {
     private String Id;  //設定題目的id範圍的參數
     Boolean guess_status = TRUE;
     Boolean game_finish = FALSE;
+
+    ArrayList<Integer> problem = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,8 +123,9 @@ public class QuePlayActivity extends Activity implements View.OnClickListener {
     public void onClick(View view) {
         Button clicked = (Button) view;
         if (clicked.getText().toString() == this.active_question.getAnswer()) {
+            correct_num += 1;
+            problem.add(1);
             if (this.questions.size() > 0 && question_num<5) {
-                correct_num += 1;
                 this.tv_correctnum.setText(getString(R.string.str_correctnumber, correct_num));
                 this.guess_status = TRUE;
                 showGuessDialog();
@@ -134,8 +138,9 @@ public class QuePlayActivity extends Activity implements View.OnClickListener {
                 //this.finish();
             }
         } else {
+            wrong_num += 1;
+            problem.add(0);
             if (this.questions.size() > 0 && question_num<5) {
-                wrong_num += 1;
                 this.tv_wrongnum.setText(getString(R.string.str_wrongnumber, wrong_num));
                 this.guess_status = FALSE;
                 showGuessDialog();
@@ -148,6 +153,8 @@ public class QuePlayActivity extends Activity implements View.OnClickListener {
                // this.finish();
             }
         }
+
+        getCoin();
     }
 
 
@@ -163,6 +170,15 @@ public class QuePlayActivity extends Activity implements View.OnClickListener {
         Intent intent = new Intent(this, GuessDialogActivity.class);
         intent.putExtra("CORRECT_NUM_MSG", this.correct_num);
         intent.putExtra("GAME_FINISH",this.game_finish);
+        startActivity(intent);
+    }
+
+    public void getCoin(){
+        Coin coin = new Coin();
+        coin.setCorerct(correct_num);
+        int earning_coin = coin.countProblemGain(problem);
+        Intent intent = new Intent(this, GuessDialogActivity.class);
+        intent.putExtra("GET_COIN",earning_coin);
         startActivity(intent);
     }
 }
