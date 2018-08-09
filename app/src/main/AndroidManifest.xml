@@ -16,22 +16,17 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/playstoreicon4"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/playstoreicon4"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
-        <activity
-            android:name=".NewTaipeiMap"
-            android:theme="@style/NoTitle" />
-        <activity
-            android:name=".PingxiActivity"
-            android:theme="@style/NoTitle" />
+        <activity android:name=".NewTaipeiMap" />
+        <!-- android:theme="@style/NoTitle" -->
+        <activity android:name=".ForbiddencityActivity" />
         <activity android:name=".QueMenuActivity" />
-        <activity
-            android:name=".QuePlayActivity"
-            android:theme="@style/NoTitle" />
+        <activity android:name=".QuePlayActivity" />
         <activity
             android:name=".GuessDialogActivity"
             android:theme="@style/dialog" />
@@ -42,12 +37,12 @@
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".StartOptionActivity" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".StartOptionActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <service
@@ -62,18 +57,18 @@
         <activity
             android:name=".NavigationActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".SetProfileActivity" />
         <activity
             android:name=".GainXPCoinDialog"
-            android:theme="@style/dialog" />
+            android:theme="@style/dialog2" />
         <activity android:name=".DrawingActivity" />
         <activity android:name=".choosedetail" />
         <activity android:name=".TaipeiMap" />
         <activity android:name=".ChooseDraw" />
-        <activity android:name=".SetupActivity"></activity>
+        <activity android:name=".SetupActivity" />
+        <activity android:name=".MidLakePavilionActivity" />
+        <activity android:name=".AnpingFortActivity" />
     </application>
 
 </manifest>

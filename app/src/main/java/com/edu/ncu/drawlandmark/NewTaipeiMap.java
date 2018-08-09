@@ -2,7 +2,6 @@ package com.edu.ncu.drawlandmark;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -24,7 +23,7 @@ public class NewTaipeiMap extends Activity implements View.OnClickListener{
     @Override
     public void onClick(View view) {
         if(view.getId() == R.id.img_pingxi){
-            this.startActivity( new Intent(NewTaipeiMap.this, PingxiActivity.class) );
+            this.startActivity( new Intent(NewTaipeiMap.this, ForbiddencityActivity.class) );
         }
     }
 }

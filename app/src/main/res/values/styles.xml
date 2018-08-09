@@ -29,6 +29,18 @@
         <item name="android:windowCloseOnTouchOutside">true</item>
     </style>
 
+    <style name="dialog2" parent="@android:style/Theme.Dialog">
+
+        <!-- 去黑邊 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- 無標題 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 是否變暗 -->
+        <item name="android:backgroundDimEnabled">false</item>
+        <!-- 點擊空白部分activity不消失 -->
+        <item name="android:windowCloseOnTouchOutside">true</item>
+    </style>
+
     <style name="Transparent">
         <item name="android:windowBackground">@color/transparent</item>
         <item name="android:windowIsTranslucent">true</item>

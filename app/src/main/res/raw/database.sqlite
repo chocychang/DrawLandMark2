@@ -14,9 +14,9 @@ CREATE TABLE `questions` (
     `solve` VARCHAR(256) DEFAULT NULL
 );
 
--- history    - A
--- geography  - B
--- literature - C
+-- forbiddencity  - A
+-- pavilion - B
+-- ANPINGFORT - C
 -- art        - D
 -- sport      - E
 -- science    - F
@@ -39,3 +39,53 @@ VALUES("下列哪個不是來到平溪可以遊玩的地點", "愛河", "十分�
 
 INSERT INTO `questions` (`question`, `correct_answer`, `wrong_answer_1`, `wrong_answer_2`, `wrong_answer_3`, `solve`, `category`)
 VALUES("俗話說「南蜂炮，北天燈」所謂的北是指哪？", "平溪", "基隆", "淡水", "野柳", "答案就是平溪", 'G');
+
+----------------------------------
+INSERT INTO `questions` (`question`, `correct_answer`, `wrong_answer_1`, `wrong_answer_2`, `wrong_answer_3`, `solve`, `category`)
+VALUES("故宮博物院的前身是成立於北京紫禁城外廷的古物陳列所，請問因何種原因而遷移至台灣呢？", "戰爭", "飢荒", "營業虧損", "政治鬥爭",  "原先設於北京的故宮博物院，因第二次中日戰爭爆發輾轉遷移至南京和四川等地。後第二次國共內戰的爆發再度導致時局動盪，1948年11月10日包括國立北平故宮博物院在內的6個機構於是決定遷往臺灣，並改名為國立故宮博物院。", 'A');
+
+INSERT INTO `questions` (`question`, `correct_answer`, `wrong_answer_1`, `wrong_answer_2`, `wrong_answer_3`, `solve`, `category`)
+VALUES("請問故宮博物院，現今隸屬於以下哪個機關？", "行政院", "	立法院", "考試院", "監察院", "國立故宮博物院是隸屬於行政院的中央二級機關，故宮院長為特任官，視同部會首長，由總統及行政院院長任命。", 'A');
+
+INSERT INTO `questions` (`question`, `correct_answer`, `wrong_answer_1`, `wrong_answer_2`, `wrong_answer_3`, `solve`, `category`)
+VALUES("請問下列哪個組合，不是故宮博物院的典藏範圍？", "筆記型電腦、AR和VR設備", "繪畫、書法", "瓷器、青銅器", "圖書、文獻", "故宮博物院典藏項目包含繪畫、書法、圖書、文獻、陶器、銅器、玉器、珍玩等，一至三樓為展覽陳列空間，四樓為休憩茶座「三希堂」，藏有全世界最多的中華藝術寶藏。至於數位裝備方面，雖院內的確使用這些科技產品來提升民眾的參觀體驗，但歸類為教育性質設備，不屬於館藏。", 'A');
+
+INSERT INTO `questions` (`question`, `correct_answer`, `wrong_answer_1`, `wrong_answer_2`, `wrong_answer_3`, `solve`, `category`)
+VALUES("請問故宮博物院擁有以下哪個稱號美名？", "中華文化寶庫", "中華科技寶庫", "中華基因寶庫", "中華知識寶庫", "故宮博物院館藏豐富，藏有全世界最多的中華藝術寶藏，收藏品主要承襲自宋、元、明、清四朝，幾乎涵蓋了整部五千年的中國歷史，數量達65萬多件，國立故宮博物院擁有「中華文化寶庫」的美名。", 'A');
+
+INSERT INTO `questions` (`question`, `correct_answer`, `wrong_answer_1`, `wrong_answer_2`, `wrong_answer_3`, `solve`, `category`)
+VALUES("以下關於故宮博物院的敘述，何者錯誤？", "故宮博物院內沒有任何提供線上學習的管道。", "故宮博物院除了北部院區，尚有南部院區。", "故宮博物院提供了許多活動及導覽報名的機會", "故宮博物院常常有豐富且不同的展覽。", "故宮「教育頻道」有多種課程，供民眾線上學習", 'A');
+
+-----------------------------------
+
+INSERT INTO `questions` (`question`, `correct_answer`, `wrong_answer_1`, `wrong_answer_2`, `wrong_answer_3`, `solve`, `category`)
+VALUES("請問台中公園湖心亭是何種國家風格的建築？", "日本", "荷蘭", "西班牙", "清朝",  "湖心亭除了是台中市民共同的記憶及代表地標外，也是台中市現存最早的日治時期古蹟。", 'B');
+
+INSERT INTO `questions` (`question`, `correct_answer`, `wrong_answer_1`, `wrong_answer_2`, `wrong_answer_3`, `solve`, `category`)
+VALUES("請問台中公園湖心亭最早的功能為以下何者？", "日本皇族休憩之所", "軍事瞭望點", "一般民眾遊樂場所", "台中政經中心", "日治時期，載仁親王被邀請前來主持台灣的鐵路「全通式」典禮，為了迎接親王的到來，台灣總督府特別在台中公園臨時興建一座「御休憩所」。", 'B');
+
+INSERT INTO `questions` (`question`, `correct_answer`, `wrong_answer_1`, `wrong_answer_2`, `wrong_answer_3`, `solve`, `category`)
+VALUES("以下關於湖心亭的敘述何者錯誤？", "湖心亭現在鮮少開放給一般遊客休憩。", "台中公園採用了先進的LED設計，讓湖心亭在夜晚更加艷麗。", "有時成為治安死角，因此在台中公園內設置派出所。", "湖心亭旁有划船設施，讓民眾同樂。", "起初湖心亭為皇族休憩場所，一般民眾無法接近，直到1914年才開放給市民參觀，湖心亭也開始在台中鄉親的心中生根，並進一步成為中台灣的熱門旅遊景點、台中市民心中的地標。", 'B');
+
+INSERT INTO `questions` (`question`, `correct_answer`, `wrong_answer_1`, `wrong_answer_2`, `wrong_answer_3`, `solve`, `category`)
+VALUES("湖心亭在進一次整修採用了什麼方法，方便進行水下結構的診斷及修復？", "將湖水抽乾", "將湖心亭拆除重新建造", "潛水員在湖中修復", "直接塗上油漆", "整體構造以木材為主的湖心亭，該次修繕時特別加裝高科技的細水霧滅火設備，這是全台古蹟首例；另於修復期間並採以圍堰方式將湖水抽乾，以便進行水下結構診斷及修復，亦為全台第一座在水中修復的古蹟案例。", 'B');
+
+INSERT INTO `questions` (`question`, `correct_answer`, `wrong_answer_1`, `wrong_answer_2`, `wrong_answer_3`, `solve`, `category`)
+VALUES("湖心亭附近，結合了何項遊憩設施以增進營利收入？", "划船", "自行車", "碰碰船", "旋轉木馬", "結合了划船以增進營利收入", 'B');
+
+------------------------------------
+
+INSERT INTO `questions` (`question`, `correct_answer`, `wrong_answer_1`, `wrong_answer_2`, `wrong_answer_3`, `solve`, `category`)
+VALUES("下列何者不是安平古堡的別稱？", "聖薩爾瓦多城", "熱蘭遮城", "紅毛城", "台灣城",  "安平古堡古稱奧倫治城(Orange)、熱蘭遮城(Zeelandia)、安平城、臺灣城，俗名紅毛城、番仔城或王城。聖薩爾瓦多城為西班牙人所建。", 'C');
+
+INSERT INTO `questions` (`question`, `correct_answer`, `wrong_answer_1`, `wrong_answer_2`, `wrong_answer_3`, `solve`, `category`)
+VALUES("安平古堡為哪一國所建？", "荷蘭人", "西班牙人", "中國人(鄭氏)", "明朝", "荷蘭人於1624年建城。", 'C');
+
+INSERT INTO `questions` (`question`, `correct_answer`, `wrong_answer_1`, `wrong_answer_2`, `wrong_answer_3`, `solve`, `category`)
+VALUES("安平古堡城面臨「拆城」的問題，請問氏以下哪個原因導致？", "以上皆是", "億載經城的建造", "民眾見政府的作為，群起效尤","以上皆非", "清朝康熙年間，將台灣的行政中心移至赤嵌，因而沒落傾頹，缺乏管理照料的熱蘭遮城逐漸傾毀，再加上建築億載金城時為撙節經費大量利用了這裡的磚石，一般民家見狀，更是有恃無恐，修築屋舍也來此就地取材。", 'C');
+
+INSERT INTO `questions` (`question`, `correct_answer`, `wrong_answer_1`, `wrong_answer_2`, `wrong_answer_3`, `solve`, `category`)
+VALUES("安平古堡當初建造的目的為何？", "荷蘭人防禦要塞", "交通往來驛站", "王族打獵需求", "文藝休閒中心", "17世紀初荷蘭人以軍商結合的隊伍，於1624年占領今日安平，並建熱蘭遮城為其防禦要塞。", 'C');
+
+INSERT INTO `questions` (`question`, `correct_answer`, `wrong_answer_1`, `wrong_answer_2`, `wrong_answer_3`, `solve`, `category`)
+VALUES("安平古堡曾是哪兩個政權的統治中心？", "荷蘭、鄭氏", "西班牙、荷蘭", "荷蘭、清", "鄭氏、清", "荷蘭人於西元1624年，在安平建造了臺灣第一座城堡「熱蘭遮城」，也就是現在的安平古堡，這裡曾是荷蘭人統治的中樞，更是對外貿易的總樞紐西元1661年。鄭成功驅離荷蘭人後，將此地改名為安平，故熱蘭遮城也稱為「王城」或「臺灣城」，俗稱安平古堡，是臺灣最早的一座城池。", 'C');

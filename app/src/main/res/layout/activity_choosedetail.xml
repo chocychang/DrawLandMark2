@@ -6,68 +6,49 @@
     android:layout_height="match_parent"
     tools:context=".choosedetail">
 
-    <android.support.v4.view.ViewPager
+    <ImageView
+        android:id="@+id/img_picorginal"
         android:layout_width="275dp"
         android:layout_height="167dp"
-        android:layout_marginEnd="52dp"
-        android:layout_marginRight="52dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginBottom="26dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/img_picmodule"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <RadioGroup
-        android:id="@+id/radiogroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|bottom"
-        android:layout_marginBottom="276dp"
-        android:layout_marginEnd="116dp"
-        android:layout_marginRight="116dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <RadioButton
-            android:id="@+id/radioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true" />
-
-        <RadioButton
-            android:id="@+id/radioButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <RadioButton
-            android:id="@+id/radioButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <RadioButton
-            android:id="@+id/radioButton4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </RadioGroup>
 
     <ImageView
-        android:id="@+id/imageView22"
+        android:id="@+id/img_picmodule"
         android:layout_width="270dp"
         android:layout_height="168dp"
         android:layout_marginBottom="100dp"
         android:layout_marginEnd="56dp"
-        android:layout_marginRight="56dp"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_picorginal"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/skylight2" />
 
     <Button
         android:id="@+id/choose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
         android:layout_marginEnd="148dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="20dp"
         android:background="@color/button"
         android:text="選擇"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView22" />
 </android.support.constraint.ConstraintLayout>

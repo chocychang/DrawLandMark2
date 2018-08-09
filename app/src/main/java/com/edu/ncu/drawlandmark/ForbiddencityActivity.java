@@ -1,22 +1,22 @@
 package com.edu.ncu.drawlandmark;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class PingxiActivity extends Activity implements ViewPager.OnPageChangeListener{
+public class ForbiddencityActivity extends Activity implements ViewPager.OnPageChangeListener{
 
     private ViewPager vp;
     private LinearLayout ll_point;
@@ -26,17 +26,19 @@ public class PingxiActivity extends Activity implements ViewPager.OnPageChangeLi
     private int lastPosition;
     private boolean isRunning = false; //viewpager是否在自???
 
-    TextView tv_guess;
-    TextView tv_draw_inK;
+    Button bt_guess2;
+    Button bt_drawingFun_inK;
     Button bt_playmusic;
+    Button bt_profolio;
 
-    private MediaPlayer mp=new MediaPlayer();
+    private MediaPlayer mp;
+    int gainCoin = 100;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pingxi);
+        setContentView(R.layout.activity_forbiddencity);
 
         //使用M-V-C模型
         //V--view??
@@ -81,30 +83,57 @@ public class PingxiActivity extends Activity implements ViewPager.OnPageChangeLi
         //?示?片描述信息的控件
 
         bt_playmusic = (Button) findViewById(R.id.bt_playmusic);
-        final MediaPlayer mp =MediaPlayer.create(this, R.raw.music2);
+        mp =MediaPlayer.create(this, R.raw.forbiddencity);
 
         bt_playmusic.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 mp.start();
+                getListenCoin();
             }
         });
 
-        this.tv_guess = (TextView) findViewById(R.id.tv_guess2);
-        tv_guess.setOnClickListener(new View.OnClickListener(){
+        this.bt_guess2 = (Button) findViewById(R.id.bt_guess2);
+        bt_guess2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v)
             {
-                startActivity( new Intent(PingxiActivity.this, QueMenuActivity.class) );
+                startActivity( new Intent(ForbiddencityActivity.this, QueMenuActivity.class) );
             }
         });
 
-        this.tv_draw_inK = (TextView) findViewById(R.id.tv_draw_inK);
-        tv_draw_inK.setOnClickListener(new View.OnClickListener(){
+        this.bt_drawingFun_inK = (Button) findViewById(R.id.bt_drawingFun_inK);
+        bt_drawingFun_inK.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v)
             {
-                startActivity( new Intent(PingxiActivity.this, ChooseDraw.class) );
+                String localName = "forbiddencity";
+                Intent intent = new Intent(ForbiddencityActivity.this, ChooseDraw.class);
+                Bundle bundle = new Bundle();
+                //儲存資料　第一個為參數key，第二個為Value
+                bundle.putString("passLocalName",localName);
+                intent.putExtras(bundle);
+                startActivity( intent );
+            }
+        });
+
+        this.bt_profolio = (Button) findViewById(R.id.bt_profolio);
+        bt_profolio.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v)
+            {
+                new AlertDialog.Builder(ForbiddencityActivity.this)
+                        .setTitle("近請期待")
+                        .setMessage("目前暫未開放此功能,非常抱歉QQ")
+                        .setPositiveButton("我知道了",
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+
+                                    }
+                                })
+
+                        .show();
             }
         });
     }
@@ -114,7 +143,7 @@ public class PingxiActivity extends Activity implements ViewPager.OnPageChangeLi
      */
     private void initData() {
         //初始化填充ViewPager的?片?源
-        imageResIds = new int[]{R.drawable.pingxi_01, R.drawable.pingxi_02, R.drawable.pingxi_03, R.drawable.pingxi_04, R.drawable.pingxi_05};
+        imageResIds = new int[]{R.drawable.forbiddencity_1, R.drawable.forbiddencity_2, R.drawable.forbiddencity_3, R.drawable.forbiddencity_4, R.drawable.forbiddencity_5};
         //?片的描述信息
 
         //保存?片?源的集合
@@ -131,7 +160,7 @@ public class PingxiActivity extends Activity implements ViewPager.OnPageChangeLi
             //加小白?，指示器（?里的小??定?在了drawable下的??器中了，也可以用小?片代替）
             pointView = new View(this);
             pointView.setBackgroundResource(R.drawable.point_selector); //使用??器?置背景
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(8, 8);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(100, 20);
             if (i != 0) {
                 //如果不是第一??，??置?的左?距
                 layoutParams.leftMargin = 10;
@@ -139,6 +168,19 @@ public class PingxiActivity extends Activity implements ViewPager.OnPageChangeLi
             pointView.setEnabled(false); //默?都是暗色的
             ll_point.addView(pointView, layoutParams);
         }
+    }
+
+    public void getListenCoin(){
+        mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener(){
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                mp.release();
+                Intent intent = new Intent(ForbiddencityActivity.this, GainXPCoinDialog.class);
+                intent.putExtra("gainCoin",gainCoin);
+                startActivity(intent);
+
+            }
+        } );
     }
 
     /*
@@ -157,6 +199,7 @@ public class PingxiActivity extends Activity implements ViewPager.OnPageChangeLi
     protected void onDestroy() {
         super.onDestroy();
         isRunning = false;
+        mp.release();
     }
 
     /*

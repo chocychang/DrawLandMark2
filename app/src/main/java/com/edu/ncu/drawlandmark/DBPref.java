@@ -7,9 +7,9 @@ import android.database.Cursor;
 public class DBPref extends DBHelper {
 
     public static enum Category {
-        HISTORY('A'),
-        GEOGRAPHY('B'),
-        LITERATURE('C'),
+        FORBIDDENCITY('A'),
+        MIDLAKEPAVILION('B'),
+        ANPINGFORT('C'),
         ART('D'),
         SPORTS('E'),
         SCIENCE('F'),

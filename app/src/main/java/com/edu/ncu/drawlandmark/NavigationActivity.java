@@ -1,5 +1,7 @@
 package com.edu.ncu.drawlandmark;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -23,6 +25,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import org.w3c.dom.Text;
+
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener , View.OnClickListener{
 
@@ -31,7 +35,24 @@ public class NavigationActivity extends AppCompatActivity
     private String userUID="";
     String useremail;
     TextView tv_taipei;
+    TextView tv_taichung;
     TextView tv_username;
+    TextView tv_keelung;
+    TextView tv_newtaipei;
+    TextView tv_taoyuan;
+    TextView tv_hsinchu;
+    TextView tv_miaoli;
+    TextView tv_changhua;
+    TextView tv_nantou;
+    TextView tv_yunlin;
+    TextView tv_chiayi;
+    TextView tv_tainan;
+    TextView tv_kaohsiung;
+    TextView tv_pingtung;
+    TextView tv_hualien;
+    TextView tv_yilan;
+    TextView tv_taitung;
+
 
     private DatabaseReference mdatabase;
 
@@ -75,10 +96,43 @@ public class NavigationActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        this.tv_taipei = (TextView) findViewById(R.id.taipei);
         this.tv_username = (TextView) findViewById(R.id.tv_nameinN);
 
+        this.tv_taipei = (TextView) findViewById(R.id.taipei);
+        this.tv_taichung = (TextView) findViewById(R.id.taichung);
+        this.tv_newtaipei = (TextView) findViewById(R.id.newtaipei);
+        this.tv_taoyuan = (TextView) findViewById(R.id.taoyuan);
+        this.tv_hsinchu = (TextView) findViewById(R.id.hsinchu);
+        this.tv_miaoli = (TextView) findViewById(R.id.miaoli);
+        this.tv_changhua = (TextView) findViewById(R.id.changhua);
+        this.tv_nantou = (TextView) findViewById(R.id.nantou);
+        this.tv_yunlin = (TextView) findViewById(R.id.yunlin);
+        this.tv_chiayi = (TextView) findViewById(R.id.chiayi);
+        this.tv_tainan = (TextView) findViewById(R.id.tainan);
+        this.tv_kaohsiung = (TextView) findViewById(R.id.kaohsiung);
+        this.tv_pingtung = (TextView) findViewById(R.id.pingtung);
+        this.tv_hualien = (TextView) findViewById(R.id.hualien);
+        this.tv_yilan = (TextView) findViewById(R.id.yilan);
+        this.tv_taitung = (TextView) findViewById(R.id.taitung);
+        this.tv_keelung = (TextView) findViewById(R.id.keelung);
+
         this.tv_taipei.setOnClickListener(this);
+        this.tv_taichung.setOnClickListener(this);
+        this.tv_newtaipei.setOnClickListener(this);
+        this.tv_taoyuan.setOnClickListener(this);
+        this.tv_hsinchu.setOnClickListener(this);
+        this.tv_miaoli.setOnClickListener(this);
+        this.tv_changhua.setOnClickListener(this);
+        this.tv_nantou.setOnClickListener(this);
+        this.tv_yunlin.setOnClickListener(this);
+        this.tv_chiayi.setOnClickListener(this);
+        this.tv_tainan.setOnClickListener(this);
+        this.tv_kaohsiung.setOnClickListener(this);
+        this.tv_pingtung.setOnClickListener(this);
+        this.tv_hualien.setOnClickListener(this);
+        this.tv_yilan.setOnClickListener(this);
+        this.tv_taitung.setOnClickListener(this);
+        this.tv_keelung.setOnClickListener(this);
 
         //-------timer設置------------------//
         Intent intent = new Intent(NavigationActivity.this, TimeService.class);
@@ -94,9 +148,36 @@ public class NavigationActivity extends AppCompatActivity
 
     @Override
     public void onClick(View view) {
+
         if(view.getId() == R.id.taipei){
-            this.startActivity( new Intent(NavigationActivity.this, TaipeiMap.class) );
+            setCityName("taipei");
+        }else if(view.getId() == R.id.taichung){
+            setCityName("taichung");
+        }else if(view.getId() == R.id.tainan){
+            setCityName("tainan");
+        }else{
+            new AlertDialog.Builder(NavigationActivity.this)
+                    .setTitle("近請期待")
+                    .setMessage("目前開放台北、台中、台南三地，之後會陸續增加！")
+                    .setPositiveButton("我知道了",
+                            new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                }
+                            })
+
+                    .show();
         }
+    }
+
+    public void setCityName(String cityname){
+        String cityName = cityname;
+        Bundle bundle = new Bundle();
+        Intent intent = new Intent(NavigationActivity.this, TaipeiMap.class);
+        bundle.putString("passCityName",cityName);
+        intent.putExtras(bundle);
+        this.startActivity(intent);
     }
 
     //在firebse中取得使用者名稱

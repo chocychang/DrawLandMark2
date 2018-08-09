@@ -20,7 +20,7 @@ public class SoundPoolUtil {
     private SoundPoolUtil(Context context) {
         soundPool = new SoundPool(3, AudioManager.STREAM_SYSTEM, 0);
         //加载音频文件
-        soundPool.load(context, R.raw.music, 1);
+        soundPool.load(context, R.raw.forbiddencity, 1);
 
 
 

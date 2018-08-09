@@ -48,7 +48,7 @@ public class GuessDialogActivity extends Activity {
         this.solving = intent.getStringExtra("Solve_MSG");
         this.game_finish_inguess = intent.getBooleanExtra("GAME_FINISH",FALSE);
         this.correct_num_inguess = intent.getIntExtra("CORRECT_NUM_MSG",0);
-        this.passCoin = intent.getIntExtra("GET_COIN",0);
+        //this.passCoin = intent.getIntExtra("GET_COIN",0);
 
         setDialog();
 
@@ -62,7 +62,7 @@ public class GuessDialogActivity extends Activity {
                 intent.putExtra("Solving_MSG", solving);
                 intent.putExtra("GAME_FINISH",game_finish_inguess);
                 intent.putExtra("CORRECT_NUM_MSG",correct_num_inguess);
-                intent.putExtra("GET_COIN",passCoin);
+               // intent.putExtra("GET_COIN",passCoin);
                 startActivity(intent);
                 GuessDialogActivity.this.finish();
 

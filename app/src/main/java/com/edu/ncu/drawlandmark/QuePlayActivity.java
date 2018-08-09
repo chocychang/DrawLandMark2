@@ -62,7 +62,7 @@ public class QuePlayActivity extends Activity implements View.OnClickListener {
         this.option_4 = (Button) this.findViewById(R.id.btn_option_4);
 
         this.db = new DBPref( this );
-        Cursor questions = this.db.getQuestions(DBPref.Category.PINGXI, DBPref.Difficulty.EASY, QUESTIONS);
+        Cursor questions = this.db.getQuestions(DBPref.Category.FORBIDDENCITY, DBPref.Difficulty.EASY, QUESTIONS);
 
         if (questions.moveToFirst()) {
             do {
@@ -154,7 +154,7 @@ public class QuePlayActivity extends Activity implements View.OnClickListener {
             }
         }
 
-        getCoin();
+       // getCoin();
     }
 
 
@@ -172,7 +172,7 @@ public class QuePlayActivity extends Activity implements View.OnClickListener {
         intent.putExtra("GAME_FINISH",this.game_finish);
         startActivity(intent);
     }
-
+/*
     public void getCoin(){
         Coin coin = new Coin();
         coin.setCorerct(correct_num);
@@ -180,6 +180,6 @@ public class QuePlayActivity extends Activity implements View.OnClickListener {
         Intent intent = new Intent(this, GuessDialogActivity.class);
         intent.putExtra("GET_COIN",earning_coin);
         startActivity(intent);
-    }
+    }   */
 }
 

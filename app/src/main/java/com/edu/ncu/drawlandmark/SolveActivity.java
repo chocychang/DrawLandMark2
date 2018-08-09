@@ -2,15 +2,11 @@ package com.edu.ncu.drawlandmark;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
@@ -58,7 +54,7 @@ public class SolveActivity extends Activity implements View.OnClickListener{
     public void onClick(View view){
         Button clicked = (Button) view;
         if(clicked == this.bt_leave){
-            Intent intent2 = new Intent(SolveActivity.this, PingxiActivity.class);
+            Intent intent2 = new Intent(SolveActivity.this, ForbiddencityActivity.class);
             startActivity(intent2);
             if(this.game_finish){
                 showGainXP();

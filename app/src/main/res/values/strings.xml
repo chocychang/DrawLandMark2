@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DrawLandMark</string>
+    <string name="app_name">台灣童學繪</string>
 
     <string name="play">Play
     </string>
@@ -75,5 +75,18 @@
     <string name="lrg">Large</string>
 
     <string name="together_drawing">大家一起來畫畫，首先選擇你喜歡的照片</string>
+    <string name="do_nothing">此功能無法使用</string>
+    <string name="load_img_fail">上傳照片失敗</string>
+    <string name="upload_success">上傳成功</string>
+    <string name="plz_pick_img">請上傳圖片</string>
+    <string name="forbiddencity">國立故宮博物院典藏華夏文物菁華，浩瀚豐富，守護人類文化史、藝術史的瑰寶。
+        至2016年底國立故宮博物院已邁入開館91週年，享譽世界四大博物館之一
+        。本院藏品以中華文物為主，藏品多精華，遂有為中華文化寶庫之譽。</string>
+    <string name="midLakePavilion">臺中公園日月湖原係自然水塘，經人工整修後，水池約有四千一百坪，
+        湖心亭係日明治41年（西元1908年）十月為慶祝縱貫鐵路全線通車典禮所建，舊稱「池亭」，為和洋風格建築，
+        來臺主持通車式的日本閑院宮載仁親王曾於此亭休憩、觀看表演。</string>
+    <string name="anpingFort">初荷蘭人以軍商結合的隊伍於1624年占領今日安平，並建熱蘭遮城為其防禦要塞。
+        鄭成功取荷蘭城後，改稱安平鎮，臺人因此稱其為王城。清領時代，失卻其重要性，加上清兵破壞熱蘭遮城建億載金城，
+        故日漸荒廢。日治後重建，乃稱安平古堡。</string>
 
 </resources>

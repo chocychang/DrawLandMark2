@@ -15,8 +15,8 @@
 
     <color name="keyVisionOrange">#FFC09F</color>
     <color name="keyVisionYellow">#FFEE93</color>
-    <color name="keyVisionBeige">#f2eed1</color>
-    <color name="keyVisionGreen">#ADF7B6</color>
+    <color name="keyVisionBeige">#f8f2eed1</color>
+    <color name="keyVisionGreen">#adf7b6</color>
     <color name="keyVisionBlue">#a5deeb</color>
     <color name="button">#FFF2EED1</color>
     <color name="mainBackground">#fffbe3</color>

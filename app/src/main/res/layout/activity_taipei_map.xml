@@ -7,7 +7,7 @@
     tools:context=".TaipeiMap">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/img_citymap"
         android:layout_width="632dp"
         android:layout_height="594dp"
         android:layout_marginEnd="8dp"
@@ -20,7 +20,7 @@
         app:srcCompat="@drawable/taipeicity" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tv_cityname"
         android:layout_width="165dp"
         android:layout_height="60dp"
         android:layout_marginBottom="8dp"
@@ -38,7 +38,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
-        android:id="@+id/iv_forbiddencity"
+        android:id="@+id/iv_building"
         android:layout_width="136dp"
         android:layout_height="171dp"
         android:layout_marginBottom="92dp"
@@ -54,16 +54,15 @@
         app:srcCompat="@drawable/forbiddencity" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/tv_buildingName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
         android:layout_marginTop="116dp"
         android:text="故宮"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/iv_forbiddencity"
-        app:layout_constraintTop_toTopOf="@+id/iv_forbiddencity" />
+        app:layout_constraintEnd_toEndOf="@+id/iv_building"
+        app:layout_constraintTop_toTopOf="@+id/iv_building" />
 
 </android.support.constraint.ConstraintLayout>
