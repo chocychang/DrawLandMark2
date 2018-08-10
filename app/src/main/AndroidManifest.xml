@@ -23,7 +23,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
         <activity android:name=".NewTaipeiMap" />
-        <!-- android:theme="@style/NoTitle" -->
+
         <activity android:name=".ForbiddencityActivity" />
         <activity android:name=".QueMenuActivity" />
         <activity android:name=".QuePlayActivity" />
@@ -37,7 +37,9 @@
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".StartOptionActivity">
+        <activity android:name=".StartOptionActivity"
+            android:theme="@style/AppTheme"
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -64,11 +66,15 @@
             android:theme="@style/dialog2" />
         <activity android:name=".DrawingActivity" />
         <activity android:name=".choosedetail" />
-        <activity android:name=".TaipeiMap" />
+        <activity android:name=".TaipeiMap"
+            android:label="@string/app_name"/>
         <activity android:name=".ChooseDraw" />
         <activity android:name=".SetupActivity" />
-        <activity android:name=".MidLakePavilionActivity" />
-        <activity android:name=".AnpingFortActivity" />
+        <activity android:name=".MidLakePavilionActivity"
+            android:theme="@style/AppTheme"
+            android:label="@string/app_name"/>
+        <activity android:name=".AnpingFortActivity"
+            android:label="@string/app_name"/>
     </application>
 
 </manifest>

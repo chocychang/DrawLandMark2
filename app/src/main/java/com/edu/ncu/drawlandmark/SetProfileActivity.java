@@ -53,6 +53,9 @@ public class SetProfileActivity extends AppCompatActivity {
     String userName;
     String useremail;
 
+    String refPath;
+    Bundle bundle;
+
     //----------頭貼設定---------//
     private static final int PICKER = 100;
     private static final int REQUEST_EXTERNAL_STORAGE = 200;//自訂權限常數
@@ -94,6 +97,7 @@ public class SetProfileActivity extends AppCompatActivity {
                 if(!TextUtils.isEmpty(imgPath)) {
                     imgUploadProgress.setVisibility(View.VISIBLE);
                     uploadImg(imgPath);
+                    downloadImg(riversRef);
                 } else{
                     Toast.makeText(SetProfileActivity.this, R.string.plz_pick_img, Toast.LENGTH_SHORT).show();
                 }
@@ -120,6 +124,8 @@ public class SetProfileActivity extends AppCompatActivity {
         //顯示Toast
         toast.show();
         Intent intent = new Intent(SetProfileActivity.this, NavigationActivity.class);
+        bundle.putString("passRefPath", refPath);
+        intent.putExtras(bundle);
         startActivity(intent);
     }
 
@@ -354,6 +360,13 @@ public class SetProfileActivity extends AppCompatActivity {
         });
     }
 
+    private void downloadImg(final StorageReference ref){
+        if(ref == null){
+            Toast.makeText(SetProfileActivity.this, R.string.plz_pick_img, Toast.LENGTH_SHORT).show();
+            return;
+        }
+        refPath = ref.getDownloadUrl().toString();
+    }
 
 
 }

@@ -3,6 +3,7 @@ package com.edu.ncu.drawlandmark;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.Log;
@@ -14,8 +15,13 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -24,6 +30,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import org.w3c.dom.Text;
 
@@ -32,6 +40,7 @@ public class NavigationActivity extends AppCompatActivity
 
     FirebaseAuth auth;
     FirebaseAuth.AuthStateListener authListener;
+    StorageReference mStorageRef;
     private String userUID="";
     String useremail;
     TextView tv_taipei;
@@ -53,12 +62,21 @@ public class NavigationActivity extends AppCompatActivity
     TextView tv_yilan;
     TextView tv_taitung;
 
+    ImageView userpicture;
+
 
     private DatabaseReference mdatabase;
+
+    //Bundle bundle;
+    //String refPath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //initData();
+        //setUserPhoto();
+
         //---------找UID-------------//
         auth = FirebaseAuth.getInstance();
         auth = FirebaseAuth.getInstance();
@@ -97,6 +115,7 @@ public class NavigationActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         this.tv_username = (TextView) findViewById(R.id.tv_nameinN);
+        this.userpicture = (ImageView) findViewById(R.id.userpicture);
 
         this.tv_taipei = (TextView) findViewById(R.id.taipei);
         this.tv_taichung = (TextView) findViewById(R.id.taichung);
@@ -144,7 +163,32 @@ public class NavigationActivity extends AppCompatActivity
 
         RetrieveUserProfileData();
 
+        //--------設定大頭貼-----//
+        //this.bundle = this.getIntent().getExtras();
+       // refPath= bundle.getString("passRefPath");
+
     }
+/*
+    private void initData() {
+        mStorageRef = FirebaseStorage.getInstance().getReference();
+    }
+
+    public void setUserPhoto(){
+        mStorageRef = FirebaseStorage.getInstance().getReferenceFromUrl(refPath);
+        mStorageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Glide.with(NavigationActivity.this)
+                        .using(new FirebaseImageLoader())
+                        .load(mStorageRef)
+                        .into(userpicture);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+            }
+        });
+    }   */
 
     @Override
     public void onClick(View view) {
@@ -229,6 +273,21 @@ public class NavigationActivity extends AppCompatActivity
         }
     }
 
+    public void showNotice(){
+        new AlertDialog.Builder(NavigationActivity.this)
+                .setTitle("近請期待")
+                .setMessage("本功能暫未開放！非常抱歉QQ")
+                .setPositiveButton("我知道了",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        })
+
+                .show();
+    }
+
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -238,15 +297,17 @@ public class NavigationActivity extends AppCompatActivity
 
         if (id == R.id.nav_maccount) {
             // Handle the camera action
+            showNotice();
         } else if (id == R.id.nav_gallery) {
-
+            showNotice();
         } else if (id == R.id.nav_manage) {
-            this.startActivity( new Intent(NavigationActivity.this, SetupActivity.class) );
+            //this.startActivity( new Intent(NavigationActivity.this, SetupActivity.class) );
+            showNotice();
 
         } else if (id == R.id.nav_mFB) {
-
+            showNotice();
         } else if (id == R.id.nav_score) {
-
+            showNotice();
         } else if (id == R.id.log_out){
             this.auth.signOut();
             this.startActivity( new Intent(NavigationActivity.this, StartOptionActivity.class) );

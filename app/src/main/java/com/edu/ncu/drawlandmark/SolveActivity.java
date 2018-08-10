@@ -21,6 +21,9 @@ public class SolveActivity extends Activity implements View.OnClickListener{
     int getCorrect_num;
     int gainCoin;
 
+    String UPlocalName;
+    Bundle bundle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +33,9 @@ public class SolveActivity extends Activity implements View.OnClickListener{
         bt_leave = (Button) findViewById(R.id.bt_leave);
         bt_nextQuestion = (Button) findViewById(R.id.bt_nextquestion);
         tv_finishgame = (TextView) findViewById(R.id.tv_finishgame);
+
+        this.bundle = this.getIntent().getExtras();
+        UPlocalName= bundle.getString("passUPLocalName");
 
         Intent intent  = getIntent();
         this.tv_solve.setText(intent.getStringExtra("Solving_MSG"));
@@ -54,13 +60,28 @@ public class SolveActivity extends Activity implements View.OnClickListener{
     public void onClick(View view){
         Button clicked = (Button) view;
         if(clicked == this.bt_leave){
-            Intent intent2 = new Intent(SolveActivity.this, ForbiddencityActivity.class);
-            startActivity(intent2);
+            BackToAcitivity();
             if(this.game_finish){
                 showGainXP();
+                this.finish();
             }
         } else if(clicked == this.bt_nextQuestion){
             this.finish();
+        }
+    }
+
+    public void BackToAcitivity(){
+        Intent intent2;
+        switch (this.UPlocalName){
+            case "FORBIDDENCITY":
+                intent2 = new Intent(SolveActivity.this, ForbiddencityActivity.class);
+                startActivity(intent2);
+            case "MIDLAKEPAVILION":
+                intent2 = new Intent(SolveActivity.this, MidLakePavilionActivity.class);
+                startActivity(intent2);
+            case "ANPINGFORT":
+                intent2 = new Intent(SolveActivity.this, AnpingFortActivity.class);
+                startActivity(intent2);
         }
     }
 

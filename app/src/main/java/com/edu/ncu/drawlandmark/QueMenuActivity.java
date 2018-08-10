@@ -12,6 +12,8 @@ public class QueMenuActivity extends AppCompatActivity implements View.OnClickLi
     private Button playButton;
     private Button statsButton;
     private Button settingsButton;
+    String UPlocalName;
+    Bundle bundle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,12 +27,18 @@ public class QueMenuActivity extends AppCompatActivity implements View.OnClickLi
         this.playButton.setOnClickListener(this);
         this.statsButton.setOnClickListener((View.OnClickListener) this);
         this.settingsButton.setOnClickListener((View.OnClickListener) this);
+
+        this.bundle = this.getIntent().getExtras();
+        UPlocalName= bundle.getString("passUPLocalName");
+        bundle.putString("passUPLocalName", UPlocalName);
     }
 
     //@Override
     public void onClick(View view) {
         if (view.getId() == R.id.btn_play) {
-            this.startActivity( new Intent(QueMenuActivity.this, QuePlayActivity.class) );
+            Intent intent = new Intent(QueMenuActivity.this, QuePlayActivity.class);
+            intent.putExtras(this.bundle);
+            startActivity(intent);
         } else if (view.getId() == R.id.btn_stats) {
 
         } else if (view.getId() == R.id.btn_settings) {

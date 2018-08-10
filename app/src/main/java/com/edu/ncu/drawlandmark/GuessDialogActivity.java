@@ -23,6 +23,7 @@ public class GuessDialogActivity extends Activity {
     Boolean game_finish_inguess;
     int correct_num_inguess;
     int passCoin;
+    Bundle bundle;
 
 
     public GuessDialogActivity(){
@@ -50,6 +51,10 @@ public class GuessDialogActivity extends Activity {
         this.correct_num_inguess = intent.getIntExtra("CORRECT_NUM_MSG",0);
         //this.passCoin = intent.getIntExtra("GET_COIN",0);
 
+        this.bundle = this.getIntent().getExtras();
+        String UPlocalName= bundle.getString("passUPLocalName");
+        bundle.putString("passUPLocalName", UPlocalName);
+
         setDialog();
 
         Handler handler = new Handler();
@@ -62,11 +67,14 @@ public class GuessDialogActivity extends Activity {
                 intent.putExtra("Solving_MSG", solving);
                 intent.putExtra("GAME_FINISH",game_finish_inguess);
                 intent.putExtra("CORRECT_NUM_MSG",correct_num_inguess);
+                intent.putExtras(bundle);
                // intent.putExtra("GET_COIN",passCoin);
                 startActivity(intent);
                 GuessDialogActivity.this.finish();
 
             }}, 1000);
+
+
 
     }
 

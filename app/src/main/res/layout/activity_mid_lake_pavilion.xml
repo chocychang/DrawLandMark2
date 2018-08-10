@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fcf5c7"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    app:chainUseRtl="false"
+    tools:context=".MidLakePavilionActivity">
+
+    <FrameLayout
+        android:layout_width="304dp"
+        android:layout_height="475dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:background="#e0ffffff"
+        app:layout_constraintBottom_toTopOf="@+id/imageView19"
+        app:layout_constraintEnd_toStartOf="@+id/bt_drawingFun_inK"
+        app:layout_constraintHorizontal_bias="0.285"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_playmusic"
+        app:layout_constraintVertical_bias="1.0">
+
+    </FrameLayout>
+
+
+    <ImageView
+        android:id="@+id/imageView19"
+        android:layout_width="115dp"
+        android:layout_height="116dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/bubble"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.72"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="258dp"
+        android:layout_height="234dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginStart="61dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/midLakePavilion"
+        android:textAlignment="viewStart"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bt_profolio"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vp"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="188dp"
+        android:layout_height="39dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="98dp"
+        android:layout_marginStart="98dp"
+        android:layout_marginTop="15dp"
+        android:text="台中公園湖心亭"
+        android:textAlignment="center"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/vp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_knowledge" />
+
+    <TextView
+        android:id="@+id/tv_knowledge"
+        style="@style/AppTheme"
+        android:layout_width="114dp"
+        android:layout_height="47dp"
+        android:layout_marginBottom="49dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="40dp"
+        android:text="小知識區"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="@color/keyVisionBlue"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/vp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bt_playmusic"
+        android:layout_width="66dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="48dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="53dp"
+        android:layout_marginTop="33dp"
+        android:background="@android:drawable/ic_lock_silent_mode_off"
+        android:backgroundTint="#FFEF9F6E"
+        app:layout_constraintBottom_toTopOf="@+id/vp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_knowledge"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp"
+        android:layout_width="228dp"
+        android:layout_height="151dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.777"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.304">
+
+
+        <LinearLayout
+            android:id="@+id/ll_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+        </LinearLayout>
+
+    </android.support.v4.view.ViewPager>
+
+
+    <Button
+        android:id="@+id/bt_drawingFun_inK"
+        android:layout_width="64dp"
+        android:layout_height="46dp"
+        android:layout_marginBottom="26dp"
+        android:layout_marginTop="153dp"
+        android:allowUndo="false"
+        android:background="#73cbaa"
+        android:text="畫圖趣"
+        android:textColor="@color/button"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/bt_guess2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bt_playmusic" />
+
+    <Button
+        android:id="@+id/bt_profolio"
+        android:layout_width="64dp"
+        android:layout_height="46dp"
+        android:allowUndo="false"
+        android:background="@color/keyVisionOrange"
+        android:text="作品集"
+        android:textColor="@color/button"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.731" />
+
+
+    <Button
+        android:id="@+id/bt_guess2"
+        android:layout_width="64dp"
+        android:layout_height="46dp"
+        android:allowUndo="false"
+        android:background="@color/colorPrimaryDark"
+        android:text="猜猜樂"
+        android:textColor="@color/button"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.587" />
+
+</android.support.constraint.ConstraintLayout>

@@ -8,6 +8,8 @@ import android.media.MediaPlayer;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -16,7 +18,7 @@ import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 
-public class ForbiddencityActivity extends Activity implements ViewPager.OnPageChangeListener{
+public class ForbiddencityActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener{
 
     private ViewPager vp;
     private LinearLayout ll_point;
@@ -39,6 +41,12 @@ public class ForbiddencityActivity extends Activity implements ViewPager.OnPageC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forbiddencity);
+
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        if(actionBar != null){
+            actionBar.setHomeButtonEnabled(true);
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
 
         //使用M-V-C模型
         //V--view??
@@ -98,7 +106,13 @@ public class ForbiddencityActivity extends Activity implements ViewPager.OnPageC
             @Override
             public void onClick(View v)
             {
-                startActivity( new Intent(ForbiddencityActivity.this, QueMenuActivity.class) );
+                String UPlocalName = "FORBIDDENCITY";
+                Intent intent = new Intent(ForbiddencityActivity.this, QueMenuActivity.class);
+                Bundle bundle = new Bundle();
+                //儲存資料　第一個為參數key，第二個為Value
+                bundle.putString("passUPLocalName",UPlocalName);
+                intent.putExtras(bundle);
+                startActivity( intent );
             }
         });
 
@@ -264,5 +278,15 @@ public class ForbiddencityActivity extends Activity implements ViewPager.OnPageC
     @Override
     public void onPageScrollStateChanged(int state) {
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                this.finish(); // back button
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -46,6 +46,9 @@ public class QuePlayActivity extends Activity implements View.OnClickListener {
 
     ArrayList<Integer> problem = new ArrayList<>();
 
+    String UPlocalName;
+    Bundle bundle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d("debug", "PlayActivity.onCreate");
@@ -61,8 +64,23 @@ public class QuePlayActivity extends Activity implements View.OnClickListener {
         this.option_3 = (Button) this.findViewById(R.id.btn_option_3);
         this.option_4 = (Button) this.findViewById(R.id.btn_option_4);
 
+        this.bundle = this.getIntent().getExtras();
+        UPlocalName= bundle.getString("passUPLocalName");
+
         this.db = new DBPref( this );
-        Cursor questions = this.db.getQuestions(DBPref.Category.FORBIDDENCITY, DBPref.Difficulty.EASY, QUESTIONS);
+
+        Cursor questions = null;
+        switch (UPlocalName){
+            case "FORBIDDENCITY":
+                questions = this.db.getQuestions(DBPref.Category.FORBIDDENCITY, DBPref.Difficulty.EASY, QUESTIONS);
+                break;
+            case "MIDLAKEPAVILION":
+                questions = this.db.getQuestions(DBPref.Category.MIDLAKEPAVILION, DBPref.Difficulty.EASY, QUESTIONS);
+                break;
+            case "ANPINGFORT":
+                questions = this.db.getQuestions(DBPref.Category.ANPINGFORT, DBPref.Difficulty.EASY, QUESTIONS);
+                break;
+        }
 
         if (questions.moveToFirst()) {
             do {
@@ -98,6 +116,7 @@ public class QuePlayActivity extends Activity implements View.OnClickListener {
         this.option_3.setOnClickListener(this);
         this.option_4.setOnClickListener(this);
     }
+
 
     private void setQuestion(Question question) {
         this.question_num++;
@@ -159,9 +178,12 @@ public class QuePlayActivity extends Activity implements View.OnClickListener {
 
 
     public void showGuessDialog(){
+        Bundle bundle = new Bundle();
         Intent intent = new Intent(this, GuessDialogActivity.class);
+        bundle.putString("passUPLocalName", UPlocalName);
         intent.putExtra("GuessStatus_EXTRA", this.guess_status);
         intent.putExtra("Solve_MSG", this.solve);
+        intent.putExtras(bundle);
         startActivity(intent);
     }
 
@@ -170,6 +192,7 @@ public class QuePlayActivity extends Activity implements View.OnClickListener {
         Intent intent = new Intent(this, GuessDialogActivity.class);
         intent.putExtra("CORRECT_NUM_MSG", this.correct_num);
         intent.putExtra("GAME_FINISH",this.game_finish);
+
         startActivity(intent);
     }
 /*

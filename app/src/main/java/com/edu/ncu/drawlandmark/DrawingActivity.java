@@ -1,5 +1,7 @@
 package com.edu.ncu.drawlandmark;
 
+import android.content.pm.PackageManager;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,6 +26,8 @@ public class DrawingActivity extends AppCompatActivity implements OnClickListene
 
     // insert圖片進入畫布
     private static int RESULT_LOAD_IMAGE = 1;
+
+    private static final int REQUEST_EXTERNAL_STORAGE = 200;//自訂權限常數
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -213,10 +217,11 @@ public class DrawingActivity extends AppCompatActivity implements OnClickListene
         }
 
         else if(view.getId()==R.id.save_btn){
+            checkPermission();
             //save drawing 保存繪畫
             AlertDialog.Builder saveDialog = new AlertDialog.Builder(this);
             saveDialog.setTitle("Save drawing");
-            saveDialog.setMessage("儲存繪畫至作品集?");
+            saveDialog.setMessage("完成並儲存繪畫至作品集?");
             saveDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener(){
                 public void onClick(DialogInterface dialog, int which){
                     //save drawing
@@ -229,6 +234,8 @@ public class DrawingActivity extends AppCompatActivity implements OnClickListene
                         Toast savedToast = Toast.makeText(getApplicationContext(),
                                 "繪畫已存至作品集!", Toast.LENGTH_SHORT);
                         savedToast.show();
+
+                        //startActivity(new Intent(DrawingActivity.this, QueMenuActivity.class));
                     }
                     else{
                         Toast unsavedToast = Toast.makeText(getApplicationContext(),
@@ -245,6 +252,21 @@ public class DrawingActivity extends AppCompatActivity implements OnClickListene
                 }
             });
             saveDialog.show();
+        }
+
+    }
+
+    private void checkPermission(){
+        int permission = ActivityCompat.checkSelfPermission(DrawingActivity.this,
+                android.Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            //未取得權限，向使用者要求允許權限
+            ActivityCompat.requestPermissions(this,
+                    new String[] {android.Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                    REQUEST_EXTERNAL_STORAGE
+            );
+        } else {
+
         }
 
     }
