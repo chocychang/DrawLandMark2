@@ -1,11 +1,12 @@
 package com.edu.ncu.drawlandmark;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class TimeUpActivity extends AppCompatActivity implements View.OnClickListener{
+public class TimeUpActivity extends Activity implements View.OnClickListener{
 
     Button btn_leave_system;
 
@@ -21,6 +22,8 @@ public class TimeUpActivity extends AppCompatActivity implements View.OnClickLis
 
     @Override
     public void onClick(View view){
+        this.finish();
+        this.onDestroy();
         System.exit(0);
     }
 }

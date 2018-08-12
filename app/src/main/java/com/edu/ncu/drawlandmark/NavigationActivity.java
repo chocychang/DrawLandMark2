@@ -1,8 +1,11 @@
 package com.edu.ncu.drawlandmark;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.drawable.AnimationDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -63,6 +66,8 @@ public class NavigationActivity extends AppCompatActivity
     TextView tv_taitung;
 
     ImageView userpicture;
+    ImageView bubble_anim;
+  //  AnimationDrawable animationDrawable;
 
 
     private DatabaseReference mdatabase;
@@ -70,6 +75,7 @@ public class NavigationActivity extends AppCompatActivity
     //Bundle bundle;
     //String refPath;
 
+    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,11 +101,12 @@ public class NavigationActivity extends AppCompatActivity
                     useremail = user.getEmail();
                 }else{
                     Log.d("onAuthStateChanged", "已登出");
-                    startActivity(new Intent(NavigationActivity.this, StartOptionActivity.class));
+                    //startActivity(new Intent(NavigationActivity.this, StartOptionActivity.class));
                 }
             }
         };
         //---------找UID-------------//
+
         setContentView(R.layout.activity_navigation);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -116,6 +123,21 @@ public class NavigationActivity extends AppCompatActivity
 
         this.tv_username = (TextView) findViewById(R.id.tv_nameinN);
         this.userpicture = (ImageView) findViewById(R.id.userpicture);
+/*
+        this.bubble_anim = (ImageView) findViewById(R.id.bubble_anim);
+        animationDrawable = new AnimationDrawable();
+        bubble_anim.setBackgroundResource(R.drawable.animation1);
+
+        animationDrawable = (AnimationDrawable) bubble_anim.getDrawable();
+
+        animationDrawable.start();//开始
+        animationDrawable.setOneShot(false);  //是否循环播放
+        // animationDrawable.stop();停止播放
+        // animationDrawable.isRunning();//是否播放
+        animationDrawable.getNumberOfFrames();//播放帧
+        // animationDrawable.getFrame(index); 返回制定索引的 Drawable对象
+        // animationDrawable.getDuration(i);停留的时间
+*/
 
         this.tv_taipei = (TextView) findViewById(R.id.taipei);
         this.tv_taichung = (TextView) findViewById(R.id.taichung);
@@ -153,6 +175,7 @@ public class NavigationActivity extends AppCompatActivity
         this.tv_taitung.setOnClickListener(this);
         this.tv_keelung.setOnClickListener(this);
 
+
         //-------timer設置------------------//
         Intent intent = new Intent(NavigationActivity.this, TimeService.class);
         startService(intent);
@@ -166,6 +189,11 @@ public class NavigationActivity extends AppCompatActivity
         //--------設定大頭貼-----//
         //this.bundle = this.getIntent().getExtras();
        // refPath= bundle.getString("passRefPath");
+
+        SharedPreferences pref = getSharedPreferences("first",MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putBoolean("status",false);
+        editor.commit();
 
     }
 /*
@@ -310,7 +338,10 @@ public class NavigationActivity extends AppCompatActivity
             showNotice();
         } else if (id == R.id.log_out){
             this.auth.signOut();
-            this.startActivity( new Intent(NavigationActivity.this, StartOptionActivity.class) );
+            Intent intent = new Intent(NavigationActivity.this, StartOptionActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                    | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            this.startActivity( intent );
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

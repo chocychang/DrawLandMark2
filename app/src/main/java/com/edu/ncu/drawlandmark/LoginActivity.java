@@ -92,7 +92,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
                     Log.d("onAuthStateChanged", "登入:" +
                             user.getUid());
                     userUID = user.getUid();
-                    startActivity(new Intent(LoginActivity.this, NavigationActivity.class));
+                    Intent intent = new Intent(LoginActivity.this, NavigationActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                            | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
                 }else{
                     Log.d("onAuthStateChanged", "已登出");
                 }

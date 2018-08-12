@@ -1,11 +1,15 @@
 package com.edu.ncu.drawlandmark;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import java.io.ByteArrayOutputStream;
 
 public class choosedetail extends AppCompatActivity {
     private Button choose;
@@ -24,6 +28,7 @@ public class choosedetail extends AppCompatActivity {
 
         setPicture();
 
+
         choose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -31,8 +36,13 @@ public class choosedetail extends AppCompatActivity {
                 Intent intent = new Intent();
                 //從MainActivity 到Main2Activity
                 intent.setClass(choosedetail.this , DrawingActivity.class);
-                //開啟Activity
+                Bundle pic_bundle = new Bundle();
+                pic_bundle.putString("localName",localName);
+                intent.putExtras(pic_bundle);
                 startActivity(intent);
+
+                //開啟Activity
+                //startActivity(intent);
             }
         });
     }
@@ -55,5 +65,7 @@ public class choosedetail extends AppCompatActivity {
                 img_picmodule.setImageResource(R.drawable.forbiddencitymodule);
                 break;
         }
+
     }
+
 }

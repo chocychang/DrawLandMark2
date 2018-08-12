@@ -69,6 +69,7 @@ public class GuessDialogActivity extends Activity {
                 intent.putExtra("CORRECT_NUM_MSG",correct_num_inguess);
                 intent.putExtras(bundle);
                // intent.putExtra("GET_COIN",passCoin);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 GuessDialogActivity.this.finish();
 

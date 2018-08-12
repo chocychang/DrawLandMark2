@@ -1,11 +1,14 @@
 package com.edu.ncu.drawlandmark;
 
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import java.util.UUID;
 import android.provider.MediaStore;
@@ -15,6 +18,8 @@ import android.content.DialogInterface;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
 import android.content.Intent;
+
+import static android.provider.ContactsContract.Directory.PACKAGE_NAME;
 //import android.net.Uri;
 //import android.database.Cursor;
 
@@ -29,15 +34,35 @@ public class DrawingActivity extends AppCompatActivity implements OnClickListene
 
     private static final int REQUEST_EXTERNAL_STORAGE = 200;//自訂權限常數
 
+    String localModule;
+    ImageView bt_bye;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drawing);
+        bt_bye = (ImageView) findViewById(R.id.bt_byebye);
         drawView = findViewById(R.id.drawing);
         LinearLayout paintLayout = findViewById(R.id.paint_colors);
         currPaint = (ImageButton)paintLayout.getChildAt(0);  //獲取第一個按鈕並將其存儲
         currPaint.setImageDrawable(getResources().getDrawable(R.drawable.paint_pressed));  //在按鈕上使用不同的可繪製圖像來顯示當前選擇的圖像
 
+        Bundle pic_bundle = this.getIntent().getExtras();
+        localModule = pic_bundle.getString("localName");
+        switch(localModule){
+            case "midlakepavilion":
+                drawView.setBackgroundResource(R.drawable.midlakepavilionmodule);
+                break;
+            case  "anpingfort":
+                drawView.setBackgroundResource(R.drawable.anpingfortmodule);
+
+                break;
+            case "forbiddencity":
+                drawView.setBackgroundResource(R.drawable.forbiddencitymodule);
+
+                break;
+        }
 
         smallBrush = getResources().getInteger(R.integer.small_size);
         mediumBrush = getResources().getInteger(R.integer.medium_size);
@@ -90,6 +115,46 @@ public class DrawingActivity extends AppCompatActivity implements OnClickListene
                             "Nothing to Redo!", Toast.LENGTH_SHORT);
                     nothingToast.show();
                 }
+            }
+        });
+
+        bt_bye.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new AlertDialog.Builder(DrawingActivity.this)
+                        .setTitle("要離開嗎QQ")
+                        .setMessage("你的畫畫還沒有儲存，確定要離開嗎？")
+                        .setPositiveButton("確定",
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Intent intent2;
+                                        switch (localModule){
+                                            case "forbiddencity":
+                                                intent2 = new Intent(DrawingActivity.this, ForbiddencityActivity.class);
+                                                intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                                startActivity(intent2);
+                                                break;
+                                            case "midlakepavilion":
+                                                intent2 = new Intent(DrawingActivity.this, MidLakePavilionActivity.class);
+                                                intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                                startActivity(intent2);
+                                                break;
+                                            case "anpingfort":
+                                                intent2 = new Intent(DrawingActivity.this, AnpingFortActivity.class);
+                                                intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                                startActivity(intent2);
+                                                break;
+                                        }
+                                    }
+                                })
+                        .setNeutralButton("不要", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        })
+                        .show();
             }
         });
 
@@ -222,22 +287,39 @@ public class DrawingActivity extends AppCompatActivity implements OnClickListene
             AlertDialog.Builder saveDialog = new AlertDialog.Builder(this);
             saveDialog.setTitle("Save drawing");
             saveDialog.setMessage("完成並儲存繪畫至作品集?");
-            saveDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener(){
-                public void onClick(DialogInterface dialog, int which){
+            AlertDialog.Builder builder = saveDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog, int which) {
                     //save drawing
                     drawView.setDrawingCacheEnabled(true); //在drawingView上啟用繪圖緩存
                     String imgSaved = MediaStore.Images.Media.insertImage(
                             getContentResolver(), drawView.getDrawingCache(),
-                            UUID.randomUUID().toString()+".png", "drawing");
+                            UUID.randomUUID().toString() + ".png", "drawing");
                     //將圖像寫入文件
-                    if(imgSaved!=null){
+                    if (imgSaved != null) {
                         Toast savedToast = Toast.makeText(getApplicationContext(),
                                 "繪畫已存至作品集!", Toast.LENGTH_SHORT);
                         savedToast.show();
 
                         //startActivity(new Intent(DrawingActivity.this, QueMenuActivity.class));
-                    }
-                    else{
+                        Intent intent2;
+                        switch (localModule){
+                            case "forbiddencity":
+                                intent2 = new Intent(DrawingActivity.this, ForbiddencityActivity.class);
+                                intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(intent2);
+                                break;
+                            case "midlakepavilion":
+                                intent2 = new Intent(DrawingActivity.this, MidLakePavilionActivity.class);
+                                intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(intent2);
+                                break;
+                            case "anpingfort":
+                                intent2 = new Intent(DrawingActivity.this, AnpingFortActivity.class);
+                                intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                startActivity(intent2);
+                                break;
+                        }
+                    } else {
                         Toast unsavedToast = Toast.makeText(getApplicationContext(),
                                 "糟糕! 繪畫無法存取.", Toast.LENGTH_SHORT);
                         unsavedToast.show();

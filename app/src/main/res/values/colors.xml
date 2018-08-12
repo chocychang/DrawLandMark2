@@ -7,7 +7,7 @@
     <color name="lightBlue">#ccffff</color>
     <color name="lightYellow">#abf0e279</color>
     <color name="lightGreen">#7ce0bb</color>
-    <color name="lightPink">#ffb7dd</color>
+    <color name="lightPink">#f2ffb7dd</color>
 
     <color name="transparent_background">#501a1919</color>
     <drawable name="translucent_background">#5500ff</drawable>
@@ -17,8 +17,11 @@
     <color name="keyVisionYellow">#FFEE93</color>
     <color name="keyVisionBeige">#f8f2eed1</color>
     <color name="keyVisionGreen">#adf7b6</color>
-    <color name="keyVisionBlue">#a5deeb</color>
+    <color name="keyVisionBlue">#d2a5deeb</color>
     <color name="button">#FFF2EED1</color>
     <color name="mainBackground">#fffbe3</color>
     <color name="textInput">#fff2cf</color>
+
+    <color name="intro">#f2906a</color>
+    <color name="intro2">#ffeb0f</color>
 </resources>

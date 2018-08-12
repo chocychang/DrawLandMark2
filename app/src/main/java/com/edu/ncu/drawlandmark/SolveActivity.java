@@ -60,11 +60,11 @@ public class SolveActivity extends Activity implements View.OnClickListener{
     public void onClick(View view){
         Button clicked = (Button) view;
         if(clicked == this.bt_leave){
-            BackToAcitivity();
             if(this.game_finish){
                 showGainXP();
                 this.finish();
             }
+            BackToAcitivity();
         } else if(clicked == this.bt_nextQuestion){
             this.finish();
         }
@@ -75,13 +75,19 @@ public class SolveActivity extends Activity implements View.OnClickListener{
         switch (this.UPlocalName){
             case "FORBIDDENCITY":
                 intent2 = new Intent(SolveActivity.this, ForbiddencityActivity.class);
+                intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent2);
+                break;
             case "MIDLAKEPAVILION":
                 intent2 = new Intent(SolveActivity.this, MidLakePavilionActivity.class);
+                intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent2);
+                break;
             case "ANPINGFORT":
                 intent2 = new Intent(SolveActivity.this, AnpingFortActivity.class);
+                intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent2);
+                break;
         }
     }
 

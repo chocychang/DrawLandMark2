@@ -10,6 +10,10 @@ public class AlarmReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
       //  Log.d("定時接收","定時接收");
         Intent i=new Intent(context,TimeService.class);
+        //Intent i=new Intent(context,TimeUpActivity.class);
         context.startService(i);//开启AlarmService服务
+
     }
+
+
 }

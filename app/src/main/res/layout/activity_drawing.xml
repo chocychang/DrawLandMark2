@@ -14,6 +14,19 @@
         android:layout_gravity="center"
         android:orientation="horizontal">
 
+        <ImageView
+            android:id="@+id/bt_byebye"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@android:drawable/btn_dialog" />
+
+        <ImageView
+            android:id="@+id/imageView9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
         <ImageButton
             android:id="@+id/insert_btn"
             android:layout_width="wrap_content"
@@ -66,14 +79,14 @@
 
     <com.edu.ncu.drawlandmark.DrawingView
         android:id="@+id/drawing"
-        android:layout_width="592dp"
-        android:layout_height="0dp"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:layout_marginBottom="3dp"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginTop="3dp"
         android:layout_weight="1"
-        android:background="#FFFFFFFF" />
+        android:background="@color/common_google_signin_btn_text_dark_default" />
 
     <LinearLayout
         android:layout_width="wrap_content"

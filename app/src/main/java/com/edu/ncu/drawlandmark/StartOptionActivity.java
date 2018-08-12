@@ -16,6 +16,7 @@ public class StartOptionActivity extends Activity implements View.OnClickListene
 
     Button bt_register;
     Button bt_sign_in;
+    Button bt_guestlogin;
 
     FirebaseAuth auth;
     FirebaseAuth.AuthStateListener authListener;
@@ -28,9 +29,11 @@ public class StartOptionActivity extends Activity implements View.OnClickListene
 
         bt_register = (Button) findViewById(R.id.W_bt_register);
         bt_sign_in = (Button) findViewById(R.id.W_bt_signi_in);
+        bt_guestlogin = (Button) findViewById(R.id.bt_guestLogin);
 
         bt_sign_in.setOnClickListener(this);
         bt_register.setOnClickListener(this);
+        bt_guestlogin.setOnClickListener(this);
 
         auth = FirebaseAuth.getInstance();
         authListener = new FirebaseAuth.AuthStateListener() {
@@ -54,7 +57,14 @@ public class StartOptionActivity extends Activity implements View.OnClickListene
         if(view.getId() == R.id.W_bt_register){
             Intent intent = new Intent(this, RegisterActivity.class);
             startActivity(intent);
-        }else{
+            //this.finish();
+        }else if(view.getId() == R.id.bt_guestLogin){
+            Intent intent = new Intent(this, GuideActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                    | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }
+        else{
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         }

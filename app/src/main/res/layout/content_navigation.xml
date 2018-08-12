@@ -63,20 +63,19 @@
                 app:srcCompat="@drawable/tw" />
 
             <ImageView
-                android:id="@+id/imageView7"
-                android:layout_width="104dp"
-                android:layout_height="87dp"
+                android:id="@+id/bubble_anim"
+                android:layout_width="171dp"
+                android:layout_height="191dp"
                 android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
-                android:layout_marginTop="416dp"
+                android:layout_marginTop="346dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
-                app:srcCompat="@drawable/bubble" />
+                app:srcCompat="@drawable/bubble_animation" />
 
             <ImageView
                 android:id="@+id/userpicture"
@@ -146,8 +145,9 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="台北市"
-                android:textColor="#20307b"
+                android:textColor="@color/colorAccent"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView"
                 app:layout_constraintEnd_toEndOf="@+id/imageView"
                 app:layout_constraintHorizontal_bias="0.64"
@@ -234,8 +234,9 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="台中市"
-                android:textColor="#20307b"
+                android:textColor="@color/colorAccent"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView"
                 app:layout_constraintEnd_toEndOf="@+id/imageView"
                 app:layout_constraintHorizontal_bias="0.071"
@@ -319,8 +320,9 @@
                 android:layout_marginEnd="240dp"
                 android:layout_marginTop="8dp"
                 android:text="台南市"
-                android:textColor="#20307b"
+                android:textColor="@color/colorAccent"
                 android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView"
                 app:layout_constraintEnd_toEndOf="@+id/imageView"
                 app:layout_constraintHorizontal_bias="0.785"
@@ -427,6 +429,7 @@
         app:menu="@menu/navigation">
 
     </android.support.design.widget.NavigationView>
+
 
 
 </android.support.v4.widget.DrawerLayout>

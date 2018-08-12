@@ -237,7 +237,10 @@ public class RegisterActivity extends AppCompatActivity {
                                     DatabaseReference userRef = mdatabase.child("users");
                                     User user = new User(userUID);
                                     userRef.push().setValue(user);
-                                    startActivity(new Intent(RegisterActivity.this, SetProfileActivity.class));
+                                    Intent intent = new Intent(RegisterActivity.this, SetProfileActivity.class);
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                                            | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                    startActivity(intent);
                                 }else{
                                     Log.d("註冊失敗","註冊失敗");
                                     Intent intent = new Intent(RegisterActivity.this, RegisterActivity.class);

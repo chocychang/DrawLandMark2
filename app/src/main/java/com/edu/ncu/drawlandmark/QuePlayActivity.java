@@ -184,6 +184,7 @@ public class QuePlayActivity extends Activity implements View.OnClickListener {
         intent.putExtra("GuessStatus_EXTRA", this.guess_status);
         intent.putExtra("Solve_MSG", this.solve);
         intent.putExtras(bundle);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
 
@@ -192,7 +193,7 @@ public class QuePlayActivity extends Activity implements View.OnClickListener {
         Intent intent = new Intent(this, GuessDialogActivity.class);
         intent.putExtra("CORRECT_NUM_MSG", this.correct_num);
         intent.putExtra("GAME_FINISH",this.game_finish);
-
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
 /*
