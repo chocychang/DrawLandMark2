@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <animation-list Android:oneshot="true"
+        xmlns:Android="HTTP://schemas.android.com/apk/res/android">
+        <item Android:duration="150" android:drawable="@drawable/bubble_animation1" />
+        <item Android:duration="150" android:drawable="@drawable/bubble_animation2" />
+        <item Android:duration="150" android:drawable="@drawable/bubble_animation3" />
+        <item Android:duration="150" android:drawable="@drawable/bubble_animation4" />
+        <item Android:duration="150" android:drawable="@drawable/bubble_animation5" />
+        <item Android:duration="150" android:drawable="@drawable/bubble_animation6" />
+        <item Android:duration="150" android:drawable="@drawable/bubble_animation5" />
+        <item Android:duration="150" android:drawable="@drawable/bubble_animation4" />
+        <item Android:duration="150" android:drawable="@drawable/bubble_animation3" />
+        <item Android:duration="150" android:drawable="@drawable/bubble_animation2" />
+    </animation-list>
+
+</set>
