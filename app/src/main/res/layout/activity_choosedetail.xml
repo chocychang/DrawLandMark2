@@ -12,13 +12,15 @@
         android:layout_height="167dp"
         android:layout_marginBottom="26dp"
         android:layout_marginEnd="56dp"
-        android:layout_marginStart="58dp"
+        android:layout_marginLeft="52dp"
+        android:layout_marginStart="52dp"
         android:layout_marginTop="50dp"
         app:layout_constraintBottom_toTopOf="@+id/img_picmodule"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.53" />
 
 
     <ImageView
@@ -41,6 +43,7 @@
         android:id="@+id/choose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:layout_marginEnd="148dp"
         android:layout_marginStart="148dp"
         android:layout_marginTop="20dp"
@@ -50,5 +53,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView22" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView22"
+        app:layout_constraintVertical_bias="0.52" />
 </android.support.constraint.ConstraintLayout>
