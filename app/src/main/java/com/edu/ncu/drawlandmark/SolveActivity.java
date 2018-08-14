@@ -63,8 +63,13 @@ public class SolveActivity extends Activity implements View.OnClickListener{
             if(this.game_finish){
                 showGainXP();
                 this.finish();
+                Intent intent2;
+                intent2 = new Intent(SolveActivity.this, NavigationActivity.class);
+                intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent2);
+            }else{
+                BackToAcitivity();
             }
-            BackToAcitivity();
         } else if(clicked == this.bt_nextQuestion){
             this.finish();
         }
@@ -88,6 +93,14 @@ public class SolveActivity extends Activity implements View.OnClickListener{
                 intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent2);
                 break;
+            case "":
+                intent2 = new Intent(SolveActivity.this, NavigationActivity.class);
+                intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent2);
+            default:
+                intent2 = new Intent(SolveActivity.this, NavigationActivity.class);
+                intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent2);
         }
     }
 

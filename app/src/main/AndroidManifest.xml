@@ -79,7 +79,9 @@
             android:name=".AnpingFortActivity"
             android:label="@string/app_name" />
         <activity android:name=".test" />
-        <activity android:name=".GuideActivity"></activity>
+        <activity
+            android:name=".GuideActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
