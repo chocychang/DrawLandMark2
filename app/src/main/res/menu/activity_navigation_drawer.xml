@@ -32,7 +32,7 @@
             <item
                 android:id="@+id/nav_mFB"
                 android:icon="@drawable/ic_menu_share"
-                android:title="我們的粉絲團" />
+                android:title="許願池" />
             <item
                 android:id="@+id/nav_score"
                 android:icon="@android:drawable/star_big_on"

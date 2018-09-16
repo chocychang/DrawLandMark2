@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -123,21 +124,14 @@ public class NavigationActivity extends AppCompatActivity
 
         this.tv_username = (TextView) findViewById(R.id.tv_nameinN);
         this.userpicture = (ImageView) findViewById(R.id.userpicture);
-/*
+
+        //-------動畫設置------------------//
         this.bubble_anim = (ImageView) findViewById(R.id.bubble_anim);
-        animationDrawable = new AnimationDrawable();
-        bubble_anim.setBackgroundResource(R.drawable.animation1);
 
-        animationDrawable = (AnimationDrawable) bubble_anim.getDrawable();
-
-        animationDrawable.start();//开始
-        animationDrawable.setOneShot(false);  //是否循环播放
-        // animationDrawable.stop();停止播放
-        // animationDrawable.isRunning();//是否播放
-        animationDrawable.getNumberOfFrames();//播放帧
-        // animationDrawable.getFrame(index); 返回制定索引的 Drawable对象
-        // animationDrawable.getDuration(i);停留的时间
-*/
+        bubble_anim.setImageResource(R.drawable.bubble_anim);
+        AnimationDrawable animationDrawable = (AnimationDrawable) bubble_anim.getDrawable();
+        animationDrawable.start();
+        //-------動畫設置------------------//
 
         this.tv_taipei = (TextView) findViewById(R.id.taipei);
         this.tv_taichung = (TextView) findViewById(R.id.taichung);
@@ -174,6 +168,26 @@ public class NavigationActivity extends AppCompatActivity
         this.tv_yilan.setOnClickListener(this);
         this.tv_taitung.setOnClickListener(this);
         this.tv_keelung.setOnClickListener(this);
+
+        Typeface type = Typeface.createFromAsset(getAssets(), "setofont.ttf");
+
+        this.tv_taipei.setTypeface(type);
+        this.tv_taichung.setTypeface(type);
+        this.tv_newtaipei.setTypeface(type);
+        this.tv_taoyuan.setTypeface(type);
+        this.tv_hsinchu.setTypeface(type);
+        this.tv_miaoli.setTypeface(type);
+        this.tv_changhua.setTypeface(type);
+        this.tv_nantou.setTypeface(type);
+        this.tv_yunlin.setTypeface(type);
+        this.tv_chiayi.setTypeface(type);
+        this.tv_tainan.setTypeface(type);
+        this.tv_kaohsiung.setTypeface(type);
+        this.tv_pingtung.setTypeface(type);
+        this.tv_hualien.setTypeface(type);
+        this.tv_yilan.setTypeface(type);
+        this.tv_taitung.setTypeface(type);
+        this.tv_keelung.setTypeface(type);
 
 
         //-------timer設置------------------//
@@ -333,7 +347,7 @@ public class NavigationActivity extends AppCompatActivity
             showNotice();
 
         } else if (id == R.id.nav_mFB) {
-            showNotice();
+            this.startActivity( new Intent(NavigationActivity.this, HopingActivity.class));
         } else if (id == R.id.nav_score) {
             showNotice();
         } else if (id == R.id.log_out){

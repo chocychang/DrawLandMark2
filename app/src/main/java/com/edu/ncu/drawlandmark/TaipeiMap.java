@@ -42,6 +42,15 @@ public class TaipeiMap extends AppCompatActivity implements View.OnClickListener
 
     }
 
+    public void setMapName(String cityname){
+        String mapName = cityname;
+        Bundle bundle = new Bundle();
+        Intent intent = new Intent(TaipeiMap.this, KnowledgeActivity.class);
+        bundle.putString("passMapName",mapName);
+        intent.putExtras(bundle);
+        this.startActivity(intent);
+    }
+
     public void setMapView(String cityname){
         switch (cityname){
             case "taipei":
@@ -67,7 +76,8 @@ public class TaipeiMap extends AppCompatActivity implements View.OnClickListener
 
     @Override
     public void onClick(View view) {
-        switch (cityName){
+        setMapName(cityName);
+    /*    switch (cityName){
             case "taipei":
                 this.startActivity( new Intent(TaipeiMap.this, ForbiddencityActivity.class) );
                 break;
@@ -77,8 +87,8 @@ public class TaipeiMap extends AppCompatActivity implements View.OnClickListener
             case "tainan":
                 this.startActivity( new Intent(TaipeiMap.this, AnpingFortActivity.class) );
                 break;
-        }
-    }
+        }  */
+     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

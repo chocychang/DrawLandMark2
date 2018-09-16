@@ -77,31 +77,34 @@ public class SolveActivity extends Activity implements View.OnClickListener{
 
     public void BackToAcitivity(){
         Intent intent2;
+        Bundle bundle = new Bundle();
+        Intent intent = new Intent(SolveActivity.this, KnowledgeActivity.class);
+        String mapName = "";
         switch (this.UPlocalName){
             case "FORBIDDENCITY":
-                intent2 = new Intent(SolveActivity.this, ForbiddencityActivity.class);
-                intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent2);
+                mapName = "taipei";
                 break;
             case "MIDLAKEPAVILION":
-                intent2 = new Intent(SolveActivity.this, MidLakePavilionActivity.class);
-                intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent2);
+                mapName = "taichung";
                 break;
             case "ANPINGFORT":
-                intent2 = new Intent(SolveActivity.this, AnpingFortActivity.class);
-                intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent2);
+                mapName = "tainan";
                 break;
-            case "":
+        /*    case "":
                 intent2 = new Intent(SolveActivity.this, NavigationActivity.class);
                 intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent2);
+                break;
             default:
                 intent2 = new Intent(SolveActivity.this, NavigationActivity.class);
                 intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent2);
+                break;  */
+
         }
+        bundle.putString("passMapName",mapName);
+        intent.putExtras(bundle);
+        this.startActivity(intent);
     }
 
     public void showGainXP(){

@@ -17,6 +17,8 @@ import android.util.Log;
 
 public class TimeService extends Service {
 
+    public int settingTime = 1800000;
+
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -34,7 +36,7 @@ public class TimeService extends Service {
                 Log.d("定時成功","定時成功");
                 showTimeUP();
 
-            }}, 1800000);
+            }}, settingTime);
 
  /*       new Thread(new Runnable(){
             @Override
@@ -68,6 +70,13 @@ public class TimeService extends Service {
 
     }
 
+    public void setSettingTime(int settingTime){
+        this.settingTime = settingTime;
+    }
 
+    @Override
+    public boolean stopService(Intent name) {
+        return super.stopService(name);
+    }
 }
 

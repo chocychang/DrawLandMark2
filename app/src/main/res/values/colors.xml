@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3f51b5</color>
-    <color name="colorPrimaryDark">#8ed6ed</color>
-    <color name="colorAccent">#ff4081</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#8ED6ED</color>
+    <color name="colorAccent">#FF4081</color>
 
-    <color name="lightBlue">#ccffff</color>
-    <color name="lightYellow">#abf0e279</color>
-    <color name="lightGreen">#7ce0bb</color>
-    <color name="lightPink">#f2ffb7dd</color>
+    <color name="lightBlue">#FFCCFFFF</color>
+    <color name="lightYellow">#F0E279</color>
+    <color name="lightGreen">#FF7CE0BB</color>
+    <color name="lightPink">#F2FFB7DD</color>
 
-    <color name="transparent_background">#501a1919</color>
-    <drawable name="translucent_background">#5500ff</drawable>
-    <color name = "transparent">#9000</color>
+    <color name="transparent_background">#501A1919</color>
+    <drawable name="translucent_background">#FF5500FF</drawable>
+    <color name = "transparent">#99000000</color>
 
     <color name="keyVisionOrange">#FFC09F</color>
     <color name="keyVisionYellow">#FFEE93</color>
-    <color name="keyVisionBeige">#f8f2eed1</color>
-    <color name="keyVisionGreen">#adf7b6</color>
-    <color name="keyVisionBlue">#d2a5deeb</color>
-    <color name="button">#FFF2EED1</color>
-    <color name="mainBackground">#fffbe3</color>
-    <color name="textInput">#fff2cf</color>
+    <color name="keyVisionBeige">#F8F2EED1</color>
+    <color name="keyVisionGreen">#FFADF7B6</color>
+    <color name="keyVisionBlue">#D2A5DEEB</color>
+    <color name="button">#f2eed1</color>
+    <color name="mainBackground">#FFFFFBE3</color>
+    <color name="textInput">#FFFFF2CF</color>
 
-    <color name="intro">#f2906a</color>
-    <color name="intro2">#ffeb0f</color>
+    <color name="intro">#FFF2906A</color>
+    <color name="intro2">#FFFFEB0F</color>
 </resources>

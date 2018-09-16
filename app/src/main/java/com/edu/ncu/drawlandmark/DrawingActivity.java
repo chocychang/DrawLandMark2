@@ -1,25 +1,44 @@
 package com.edu.ncu.drawlandmark;
 
+import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import java.io.File;
 import java.util.UUID;
 import android.provider.MediaStore;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.view.View.OnClickListener;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.content.Intent;
 
+import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageMetadata;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
 import static android.provider.ContactsContract.Directory.PACKAGE_NAME;
+import static com.edu.ncu.drawlandmark.SetProfileActivity.getPath;
 //import android.net.Uri;
 //import android.database.Cursor;
 
@@ -37,6 +56,15 @@ public class DrawingActivity extends AppCompatActivity implements OnClickListene
     String localModule;
     ImageView bt_bye;
 
+    //-------firebase上傳照片-------//
+    private StorageReference mStorageRef;
+    private StorageReference riversRef;
+    private static final int PICKER = 100;
+    TextView infoText;
+    String imgSaved;
+    int porfolio_number = 2;
+    //----------------------//
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +75,11 @@ public class DrawingActivity extends AppCompatActivity implements OnClickListene
         LinearLayout paintLayout = findViewById(R.id.paint_colors);
         currPaint = (ImageButton)paintLayout.getChildAt(0);  //獲取第一個按鈕並將其存儲
         currPaint.setImageDrawable(getResources().getDrawable(R.drawable.paint_pressed));  //在按鈕上使用不同的可繪製圖像來顯示當前選擇的圖像
+
+        //-----firebase------//
+        mStorageRef = FirebaseStorage.getInstance().getReference().child("userPorfolio");
+        //-----------//
+
 
         Bundle pic_bundle = this.getIntent().getExtras();
         localModule = pic_bundle.getString("localName");
@@ -128,24 +161,23 @@ public class DrawingActivity extends AppCompatActivity implements OnClickListene
                                 new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
-                                        Intent intent2;
+                                        Bundle bundle = new Bundle();
+                                        Intent intent2 = new Intent(DrawingActivity.this, KnowledgeActivity.class);
+                                        String mapName = "";
                                         switch (localModule){
                                             case "forbiddencity":
-                                                intent2 = new Intent(DrawingActivity.this, ForbiddencityActivity.class);
-                                                intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                                startActivity(intent2);
+                                                mapName = "taipei";
                                                 break;
                                             case "midlakepavilion":
-                                                intent2 = new Intent(DrawingActivity.this, MidLakePavilionActivity.class);
-                                                intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                                startActivity(intent2);
+                                                mapName = "taichung";
                                                 break;
                                             case "anpingfort":
-                                                intent2 = new Intent(DrawingActivity.this, AnpingFortActivity.class);
-                                                intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                                startActivity(intent2);
+                                                mapName = "tainan";
                                                 break;
                                         }
+                                        bundle.putString("passMapName",mapName);
+                                        intent2.putExtras(bundle);
+                                        startActivity(intent2);
                                     }
                                 })
                         .setNeutralButton("不要", new DialogInterface.OnClickListener() {
@@ -291,7 +323,7 @@ public class DrawingActivity extends AppCompatActivity implements OnClickListene
                 public void onClick(DialogInterface dialog, int which) {
                     //save drawing
                     drawView.setDrawingCacheEnabled(true); //在drawingView上啟用繪圖緩存
-                    String imgSaved = MediaStore.Images.Media.insertImage(
+                    imgSaved = MediaStore.Images.Media.insertImage(
                             getContentResolver(), drawView.getDrawingCache(),
                             UUID.randomUUID().toString() + ".png", "drawing");
                     //將圖像寫入文件
@@ -300,25 +332,55 @@ public class DrawingActivity extends AppCompatActivity implements OnClickListene
                                 "繪畫已存至作品集!", Toast.LENGTH_SHORT);
                         savedToast.show();
 
+                        //-------------firebase------------//
+
+                        if(!TextUtils.isEmpty(imgSaved)) {
+                            uploadImg(imgSaved);
+                           // downloadImg(riversRef);
+                        } else{
+                            Toast.makeText(DrawingActivity.this, R.string.plz_pick_img, Toast.LENGTH_SHORT).show();
+                        }
+
+
+                        StorageReference riversRef = mStorageRef.child(Uri.parse(imgSaved).getLastPathSegment());
+
+                        UploadTask uploadTask = riversRef.putFile(Uri.parse(imgSaved));
+                        uploadTask.addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception exception) {
+
+                            }
+                        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                            @Override
+                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                            }
+                        });
+
+                        porfolio_number++;
+                        FirebaseDatabase fireDB = FirebaseDatabase.getInstance();
+                        DatabaseReference myDatebase = fireDB.getReference("porfolio_info").child("porfolio_number");
+
+                        //-------------firebase------------//
+
                         //startActivity(new Intent(DrawingActivity.this, QueMenuActivity.class));
-                        Intent intent2;
+                        Bundle bundle = new Bundle();
+                        Intent intent2 = new Intent(DrawingActivity.this, KnowledgeActivity.class);
+                        String mapName = "";
                         switch (localModule){
                             case "forbiddencity":
-                                intent2 = new Intent(DrawingActivity.this, ForbiddencityActivity.class);
-                                intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                startActivity(intent2);
+                                mapName = "taipei";
                                 break;
                             case "midlakepavilion":
-                                intent2 = new Intent(DrawingActivity.this, MidLakePavilionActivity.class);
-                                intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                startActivity(intent2);
+                                mapName = "taichung";
                                 break;
                             case "anpingfort":
-                                intent2 = new Intent(DrawingActivity.this, AnpingFortActivity.class);
-                                intent2.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                startActivity(intent2);
+                                mapName = "tainan";
                                 break;
                         }
+                        bundle.putString("passMapName",mapName);
+                        intent2.putExtras(bundle);
+                        startActivity(intent2);
                     } else {
                         Toast unsavedToast = Toast.makeText(getApplicationContext(),
                                 "糟糕! 繪畫無法存取.", Toast.LENGTH_SHORT);
@@ -352,5 +414,52 @@ public class DrawingActivity extends AppCompatActivity implements OnClickListene
         }
 
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case REQUEST_EXTERNAL_STORAGE: {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                } else {
+                    Toast toast = Toast.makeText(DrawingActivity.this, R.string.do_nothing, Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+            }
+        }
+    }
+
+
+
+    private void uploadImg(String path){
+        Uri file = Uri.fromFile(new File(path));
+        StorageMetadata metadata = new StorageMetadata.Builder()
+                .setContentDisposition("universe")
+                .setContentType("image/jpg")
+                .build();
+        riversRef = mStorageRef.child("userPorfolio").child(file.getLastPathSegment());
+        UploadTask uploadTask = riversRef.putFile(file, metadata);
+        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+            }
+        }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                int progress = (int)((100.0 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount());
+
+                if(progress >= 100){
+
+                }
+            }
+        });
+    }
+
 }
 
